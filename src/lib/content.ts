@@ -191,6 +191,9 @@ export type SolutionContent = {
   intro: string;
   need: string;
   deliverables: string[];
+  /** Approved client marks shown as proof on this audience's page (CLIENTS slugs). */
+  clients: string[];
+
   situation: { heading: string; body: string }[];
   example: {
     caption: string;
@@ -209,6 +212,8 @@ export const SOLUTIONS: SolutionContent[] = [
       "Retailers understand shoppers and categories better than anyone. We help you package that understanding into insight your supplier partners will pay for — run by your own team.",
     need: "Suppliers want clearer category and shopper understanding; retailers want a structured, fair way to provide it.",
     deliverables: ["Category insight packages", "Supplier collaboration model", "Pricing and sales playbook"],
+    clients: ["dr-max", "atida", "apo-com", "plus", "naivas"],
+
     situation: [
       {
         heading: "The data already exists",
@@ -247,6 +252,8 @@ export const SOLUTIONS: SolutionContent[] = [
       "Search demand, assortment gaps and promotion performance are valuable to the sellers and brands on your platform. We help you shape that into a reporting offer your team owns.",
     need: "Sellers and brands want to understand demand on your platform; you want a scalable, governed way to serve them.",
     deliverables: ["Seller and brand intelligence offer", "Search-demand reporting", "Tiered commercial model"],
+    clients: ["skroutz"],
+
     situation: [
       {
         heading: "Demand is visible to you",
@@ -285,6 +292,8 @@ export const SOLUTIONS: SolutionContent[] = [
       "Purchase missions, availability and local demand by area and time tell partners where and when to act. We help you turn those patterns into partner insight briefs.",
     need: "Brands and partners want to understand fast, local purchase behaviour; you want a commercial model around it.",
     deliverables: ["Partner insight briefs", "Local demand reporting", "Partner commercial framework"],
+    clients: ["efood"],
+
     situation: [
       {
         heading: "Missions, not baskets",
