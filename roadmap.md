@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Copy the five approved news articles in full and make them readable on the new site
 - [x] Convert Group redesign per convertgroup-design.md (homepage + all interior routes)
 - [x] Use uploaded logo file unaltered in header + favicon
 - [x] Approved customer marks in the trusted-by strip (Dr. Max, Atida, PLUS, Naivas, Skroutz)
