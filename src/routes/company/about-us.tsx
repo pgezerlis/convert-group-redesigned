@@ -15,7 +15,7 @@ export const Route = createFileRoute("/company/about-us")({
   component: Page,
 });
 
-const COUNTRIES = ["Czechia", "France", "Germany", "Greece", "Italy", "Poland", "Romania", "Serbia", "South Africa", "Spain", "Sweden"];
+const COUNTRIES = ["Czechia", "France", "Greece", "Italy", "Kenya", "Netherlands", "Poland", "Romania", "Serbia", "Slovakia", "Spain"];
 
 const FACTS = [
   { value: "35+", label: "Retailers" },
