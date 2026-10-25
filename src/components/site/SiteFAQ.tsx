@@ -1,11 +1,16 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLink } from "@/components/site/ui";
+import { NavyRow, useNavy } from "@/components/site/NavySection";
 import { FAQS } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export function SiteFAQ() {
+  const state = useNavy();
+
   return (
-    <section aria-labelledby="faq-heading" className="section border-t border-border">
+    <section aria-labelledby="faq-heading" className={cn("section border-t border-border transition-colors duration-300", state.navy && "on-dark")}>
       <div className="container-cg">
+        <NavyRow {...state} />
         <div className="mx-auto max-w-[880px]">
           <h2 id="faq-heading" className="mb-10 text-center !tracking-normal md:mb-14">FAQ</h2>
           <Accordion type="single" collapsible className="border-t border-navy">
