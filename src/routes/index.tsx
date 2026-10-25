@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSiteAppearance } from "@/components/site/SiteAppearance";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
-import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
-import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
+import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
