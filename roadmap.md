@@ -8,6 +8,8 @@
 - [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
 - [x] Make the five insight app shots larger and give them a subtle entrance, slow zoom and sheen
 - [x] Give each of the five services its own line mark with a cyan hover spine on the homepage and solutions lists
+- [x] Show approved client marks as proof on the solutions pages (Skroutz at marketplaces, efood at delivery apps, retailers without the sports brands)
+
 
 
 - [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
