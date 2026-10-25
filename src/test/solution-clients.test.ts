@@ -15,4 +15,10 @@ describe("approved marks per audience", () => {
   it("shows the approved marks except the sports brands on the retailers page", () => {
     expect(clientsFor("retailers")).toEqual(["dr-max", "atida", "apo-com", "plus", "naivas"]);
   });
+
+  it("hides the proof strip where only one client has approved a mark", () => {
+    expect(clientsFor("marketplaces").length).toBe(1);
+    expect(clientsFor("delivery-apps").length).toBe(1);
+    expect(clientsFor("retailers").length).toBeGreaterThan(1);
+  });
 });
