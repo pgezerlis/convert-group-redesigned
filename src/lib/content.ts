@@ -1,10 +1,10 @@
 // Content objects. Everything here is proposed website copy or clearly illustrative
 // example data — no client results, logos or testimonials are invented.
-import bundleOpportunities from "@/assets/insights/bundle-opportunities-clean-transparent.png.asset.json";
-import marketShares from "@/assets/insights/brand-performance-clean-transparent.png.asset.json";
-import salesGrowth from "@/assets/insights/kpi-tree-clean-transparent.png.asset.json";
-import siteNavigation from "@/assets/insights/site-navigation-clean-transparent.png.asset.json";
-import retailMedia from "@/assets/insights/retail-media-strategy.png.asset.json";
+import bundleOpportunities from "@/assets/insights/bundle-opportunities-tight.webp.asset.json";
+import marketShares from "@/assets/insights/brand-performance-tight.webp.asset.json";
+import salesGrowth from "@/assets/insights/kpi-tree-tight.webp.asset.json";
+import siteNavigation from "@/assets/insights/site-navigation-tight.webp.asset.json";
+import retailMedia from "@/assets/insights/retail-media-tight.webp.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 import claudeMark from "@/assets/tools/claude.svg";
 import chatgptMark from "@/assets/tools/openai.svg";
@@ -53,35 +53,35 @@ export const MONETISABLE_INSIGHTS = {
       title: "Market Shares",
       status: "available",
       description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
-      screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1920, height: 1200 },
+      screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1658, height: 899 },
     },
     {
       slug: "sales-growth-insights",
       title: "Sales Growth Insights",
       status: "available",
       description: "Every Brand needs to understand the “why” behind fluctuations in their sales figures. With our platform, brands gain instant, in-depth insights into their performance, breaking down sales data into granular components. Our intuitive, visual reports uncover the key drivers of sales changes—whether it’s promotions, seasonality, or market shifts—empowering brands to refine their strategies, optimise inventory, and seize new growth opportunities with confidence.",
-      screenshot: { src: salesGrowth.url, alt: "Sales Growth Insights: KPI tree breaking down sales growth drivers", width: 1920, height: 1152 },
+      screenshot: { src: salesGrowth.url, alt: "Sales Growth Insights: KPI tree breaking down sales growth drivers", width: 1658, height: 921 },
     },
     {
       slug: "search-navigation",
       title: "Search & Navigation",
       status: "available",
       description: "Share real-time insights into how customers discover, research, and purchase products across your platform. Track and analyse consumer behaviors—from search queries and navigation patterns to purchase pathways. This data empowers brands to refine their digital marketing strategies, personalise customer experiences, and optimise their retail media campaigns for higher engagement.",
-      screenshot: { src: siteNavigation.url, alt: "Search & Navigation: site search and navigation demand in the app", width: 1920, height: 1104 },
+      screenshot: { src: siteNavigation.url, alt: "Search & Navigation: site search and navigation demand in the app", width: 1658, height: 925 },
     },
     {
       slug: "customer-insights",
       title: "Customer Insights",
       status: "available",
       description: "Unlock powerful data on your audience—whether for your brand, competitors, or categories. Analyse segments like age, gender, income, lifestyle, and buying behavior to spot cross-sell opportunities, high-value bundles, and category affinities that drive sales. With this, brands can fine-tune targeting, personalise offers, and optimise product assortments for better conversions.",
-      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1104 },
+      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1658, height: 877 },
     },
     {
       slug: "retail-media-strategy",
       title: "Retail Media Strategy",
       status: "available",
       description: "Measure the effectiveness of retail media campaigns with real-time, data-backed insights that show clear results. We provide detailed attribution level metrics, ROAS, incremental ROAS, ROI and campaign post impact, ensuring brands have full transparency. By offering detailed and incremental measurement, brands can fine-tune their media strategies, build trust with suppliers, and drive increased media budgets over time.",
-      screenshot: { src: retailMedia.url, alt: "Retail Media Strategy: campaign results with estimated incremental sales in the app", width: 1920, height: 1080 },
+      screenshot: { src: retailMedia.url, alt: "Retail Media Strategy: campaign results with estimated incremental sales in the app", width: 1658, height: 869 },
     },
   ],
 };
