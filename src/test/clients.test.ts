@@ -19,4 +19,11 @@ describe("Trusted-by client list", () => {
     const drMax = CLIENTS.find((c) => c.name === "Dr. Max");
     expect(drMax?.countries.map((k) => k.code)).toEqual(["cz", "ro", "it", "sk", "rs", "pl"]);
   });
+
+  it("has an official mark file for every approved customer", () => {
+    const marks = import.meta.glob("/src/assets/logos/*.asset.json");
+    for (const c of CLIENTS) {
+      expect(marks[`/src/assets/logos/${c.slug}.asset.json`], `${c.name} mark`).toBeTruthy();
+    }
+  });
 });
