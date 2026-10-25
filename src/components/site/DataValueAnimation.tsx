@@ -10,6 +10,8 @@ export function DataValueAnimation() {
   const reset = useRef(false);
   const [isPaused, setIsPaused] = useState(false);
   const [ready, setReady] = useState(false);
+  const [stage, setStage] = useState(0);
+  const stageRef = useRef(0);
 
   useEffect(() => {
     const element = host.current;
@@ -45,6 +47,9 @@ export function DataValueAnimation() {
       scene.add(group);
       const sphere: number[][] = [];
       const columns: number[][] = [];
+      const network: number[][] = [];
+      const links: number[][] = [];
+      const nodes = [[-1.15, -0.7, 0], [1.15, -0.7, 0], [0, 1.05, 0]];
       const dummy = new THREE.Object3D();
       const goldenAngle = Math.PI * (3 - Math.sqrt(5));
       for (let i = 0; i < count; i++) {
@@ -52,12 +57,18 @@ export function DataValueAnimation() {
         const radius = Math.sqrt(1 - y * y);
         const theta = goldenAngle * i;
         sphere.push([Math.cos(theta) * radius * 1.55, y * 1.55, Math.sin(theta) * radius * 1.55]);
-        const column = i % 7;
-        const row = Math.floor(i / 7) % 20;
-        const depth = Math.floor(i / 140);
-        const height = [0.65, 0.9, 1.2, 1.65, 1.4, 1.85, 2.15][column] ?? 1;
-        columns.push([(column - 3) * 0.4, (row / 19) * height - 1.15, (depth - 3.5) * 0.12]);
-        const color = colors[i % 13 === 0 ? 1 : i % 5 === 0 ? 3 : i % 3 === 0 ? 2 : 0];
+        const column = i % 6;
+        const row = Math.floor(i / 6) % 24;
+        const depth = Math.floor(i / 144);
+        const height = [0.55, 0.85, 1.15, 1.5, 1.9, 2.4][column] ?? 1;
+        columns.push([(column - 2.5) * 0.46, (row / 23) * height - 1.2, (depth - 3.5) * 0.12]);
+        const node = nodes[i % 3] ?? [0, 0, 0];
+        const ny = 1 - ((Math.floor(i / 3) % 320) / 319) * 2;
+        const nr = Math.sqrt(1 - ny * ny);
+        const nt = goldenAngle * i;
+        network.push([(node[0] ?? 0) + Math.cos(nt) * nr * 0.5, (node[1] ?? 0) + ny * 0.5, Math.sin(nt) * nr * 0.5]);
+        links.push(i % 5 === 0 ? [i % 3, (i * 0.618) % 1] : []);
+        const color = colors[i % 5 === 0 ? (i % 4 === 0 ? 1 : 0) : i % 7 === 0 ? 3 : i % 3 === 0 ? 2 : 0];
         if (color) particles.setColorAt(i, color);
       }
       const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -92,29 +103,48 @@ export function DataValueAnimation() {
         if (reset.current) { elapsed = 0; reset.current = false; }
         if (!paused.current && !motion.matches && visible) elapsed += delta;
         if (!visible) return;
-        const phase = elapsed % 16;
-        const blend = phase < 5 ? 0 : phase < 8 ? (phase - 5) / 3 : phase < 11 ? 1 : phase < 14 ? 1 - (phase - 11) / 3 : 0;
+        // Data (sphere) -> collaboration (linked partners) -> value (rising columns) -> data
+        const shapes = [sphere, network, columns];
+        const phase = motion.matches ? 1 : elapsed % 18;
+        const segment = Math.floor(phase / 6);
+        const local = phase % 6;
+        const blend = local < 3.5 ? 0 : (local - 3.5) / 2.5;
         const eased = blend * blend * (3 - 2 * blend);
+        const current = motion.matches ? 1 : eased < 0.5 ? segment : (segment + 1) % 3;
+        if (current !== stageRef.current) { stageRef.current = current; setStage(current); }
+        const from = shapes[segment] ?? sphere;
+        const to = shapes[(segment + 1) % 3] ?? sphere;
+        const flow = (i: number, base: number[], shared: boolean) => {
+          const link = links[i];
+          if (!shared || !link || link.length < 2) return base;
+          const s0 = nodes[link[0] ?? 0] ?? [0, 0, 0];
+          const s1 = nodes[((link[0] ?? 0) + 1) % 3] ?? [0, 0, 0];
+          const t = ((link[1] ?? 0) + elapsed * 0.18) % 1;
+          return [(s0[0] ?? 0) + ((s1[0] ?? 0) - (s0[0] ?? 0)) * t, (s0[1] ?? 0) + ((s1[1] ?? 0) - (s0[1] ?? 0)) * t, 0];
+        };
+        const spin = segment === 0 ? 1 - eased : segment === 2 ? eased : 0;
         for (let i = 0; i < count; i++) {
-          const a = sphere[i];
-          const b = columns[i];
-          if (!a || !b) continue;
-          const ripple = motion.matches ? 1 : 1 + Math.sin(elapsed * 1.2 + i * 0.03) * 0.025 * (1 - eased);
+          const fa = from[i];
+          const fb = to[i];
+          if (!fa || !fb) continue;
+          const a = motion.matches ? flow(i, fb, to === network) : flow(i, fa, from === network);
+          const b = flow(i, fb, to === network);
+          const ripple = motion.matches ? 1 : 1 + Math.sin(elapsed * 1.2 + i * 0.03) * 0.025 * spin;
           dummy.position.set(
             ((a[0] ?? 0) * (1 - eased) + (b[0] ?? 0) * eased) * ripple,
             ((a[1] ?? 0) * (1 - eased) + (b[1] ?? 0) * eased) * ripple,
             ((a[2] ?? 0) * (1 - eased) + (b[2] ?? 0) * eased) * ripple,
           );
           dummy.scale.set(0.026 + (i % 4) * 0.011, 0.012 + (i % 3) * 0.004, 0.015);
-          dummy.rotation.set(0, -elapsed * 0.12 * (1 - eased), 0);
+          dummy.rotation.set(0, 0, 0);
           dummy.updateMatrix();
           particles.setMatrixAt(i, dummy.matrix);
         }
         particles.instanceMatrix.needsUpdate = true;
         if (motion.matches) {
-          group.rotation.set(-0.08, 0.25, 0);
+          group.rotation.set(-0.08, 0.2, 0);
         } else if (!paused.current) {
-          group.rotation.y = elapsed * 0.12 * (1 - eased) + 0.25 * eased + pointer.x;
+          group.rotation.y = Math.sin(elapsed * 0.3) * 0.5 * spin + 0.2 * (1 - spin) + pointer.x;
           group.rotation.x += ((-0.08 + pointer.y) - group.rotation.x) * 0.04;
         }
         renderer.render(scene, camera);
@@ -150,7 +180,7 @@ export function DataValueAnimation() {
         )}
       </div>
       <div className="flex min-h-11 items-center justify-between gap-2 border-t border-border pt-3">
-        <figcaption className="font-mono text-xs text-muted-foreground sm:text-sm">{HERO_ANIMATION.label}</figcaption>
+        <figcaption className="font-mono text-xs text-muted-foreground sm:text-sm">{HERO_ANIMATION.stages[stage] ?? HERO_ANIMATION.label}</figcaption>
         <div className="flex shrink-0 gap-1">
           <Button variant="ghost" size="icon" title={isPaused ? "Play animation" : "Pause animation"} aria-label={isPaused ? "Play animation" : "Pause animation"} onClick={() => {
             paused.current = !isPaused;
