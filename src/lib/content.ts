@@ -224,6 +224,7 @@ export type Client = { name: string; slug: string };
 export const CLIENTS: Client[] = [
   { name: "Dr. Max", slug: "dr-max" },
   { name: "Atida", slug: "atida" },
+  { name: "apo.com", slug: "apo-com" },
   { name: "PLUS", slug: "plus" },
   { name: "Naivas", slug: "naivas" },
   { name: "Skroutz", slug: "skroutz" },
