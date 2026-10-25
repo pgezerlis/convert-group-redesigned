@@ -228,7 +228,7 @@ export const CLIENTS: Client[] = [
   { name: "Naivas", slug: "naivas" },
   { name: "Skroutz", slug: "skroutz" },
   { name: "efood", slug: "efood" },
+  { name: "JD", slug: "jd" },
   { name: "Intersport", slug: "intersport" },
   { name: "Foot Locker", slug: "foot-locker" },
-  { name: "JD", slug: "jd" },
 ];
