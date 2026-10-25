@@ -226,6 +226,22 @@ export const SOLUTIONS: SolutionContent[] = [
 export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === slug);
 
 /** FAQ answers reuse existing site copy rather than adding new product claims. */
+/** Homepage MCP section copy; official tool marks only (simple-icons / Microsoft's own SVG), never redrawn. */
+export const MCP_SECTION = {
+  eyebrow: "Built on MCP",
+  title: "Works with what you have.",
+  body: [
+    "Your brand partners don’t need another dashboard. Through Convert’s MCP, the data you share reaches the AI tools their teams already use — Claude, ChatGPT, Copilot — and becomes part of the work they do there.",
+    "You keep control of what each partner can reach; they bring their own tools to it.",
+  ],
+  toolsLabel: "Tools your partners already use",
+  tools: [
+    { name: "Claude", mark: claudeMark, alt: "Claude logo" },
+    { name: "ChatGPT", mark: chatgptMark, alt: "ChatGPT logo" },
+    { name: "Copilot", mark: copilotMark, alt: "Copilot logo" },
+  ],
+};
+
 export const FAQS = [
   {
     id: "what-we-do",
