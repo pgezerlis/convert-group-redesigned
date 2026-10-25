@@ -221,6 +221,40 @@ export const SOLUTIONS: SolutionContent[] = [
 
 export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === slug);
 
+/** FAQ answers reuse existing site copy rather than adding new product claims. */
+export const FAQS = [
+  {
+    id: "what-we-do",
+    question: "What does Convert Group do?",
+    answer: "We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.",
+  },
+  {
+    id: "partners",
+    question: "Who can benefit from our data?",
+    answer: "Suppliers, sellers and brand partners make better decisions with what you see every day. Most organisations share fragments of it informally. A defined offer, buyer and price turns that into a revenue line your team runs.",
+  },
+  {
+    id: "insights",
+    question: "What kinds of insights can retailers monetise?",
+    answer: MONETISABLE_INSIGHTS.areas.map((area) => area.title).join(", ") + ".",
+  },
+  {
+    id: "commercial-model",
+    question: "How is the commercial model developed?",
+    answer: METHOD[1].detail,
+  },
+  {
+    id: "team-ownership",
+    question: "Who runs the capability inside our business?",
+    answer: SOLUTIONS[0]?.situation[2]?.body ?? "The relationships belong with your commercial team. We build the framework so they can run it confidently.",
+  },
+  {
+    id: "getting-started",
+    question: "Where do we start?",
+    answer: METHOD[0].detail,
+  },
+] as const;
+
 /** Abstract homepage animation labels, not performance data or product claims. */
 export const HERO_ANIMATION = {
   label: "Data. Collaboration. Commercial value.",
