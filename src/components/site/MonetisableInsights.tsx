@@ -1,23 +1,9 @@
 import { MONETISABLE_INSIGHTS } from "@/lib/content";
 import { Pending } from "@/components/site/ui";
+import { AssistantChat } from "@/components/site/AssistantChat";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type Advice = { brand: string; trigger: string; text: string };
-
-function AdviceFeed({ items }: { items: readonly Advice[] }) {
-  return (
-    <ul aria-label="Example advice from the AI assistant" className="space-y-3">
-      {items.map((item) => (
-        <li key={item.brand} className="border border-border bg-surface p-5">
-          <p className="data-label text-muted-foreground">
-            <span className="text-navy">{item.brand}</span> · {item.trigger}
-          </p>
-          <p className="mt-2 text-base leading-relaxed text-foreground">{item.text}</p>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export function MonetisableInsights() {
   const first = MONETISABLE_INSIGHTS.areas[0]?.slug ?? "market-shares";
@@ -48,7 +34,7 @@ export function MonetisableInsights() {
                   </div>
                   <div className="min-w-0 lg:col-span-7">
                     {advice ? (
-                      <AdviceFeed items={advice} />
+                      <AssistantChat items={advice} />
                     ) : area.screenshot ? (
                       <figure>
                         <img src={area.screenshot.src} alt={area.screenshot.alt} width={area.screenshot.width} height={area.screenshot.height} loading="lazy" className="block h-auto w-full" />
