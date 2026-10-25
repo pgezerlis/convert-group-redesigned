@@ -4,7 +4,8 @@ import { Logo } from "./Logo";
 
 export function SiteFooter() {
   const groups = [
-    { label: "Explore", children: NAV.filter((i) => !isGroup(i)) as { label: string; to: string }[] },
+    // The footer keeps its own curated list: the Home entry is header-only.
+    { label: "Explore", children: NAV.filter((i) => !isGroup(i) && i.to !== "/") as { label: string; to: string }[] },
     ...NAV.filter(isGroup),
   ];
   return (
