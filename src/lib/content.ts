@@ -210,13 +210,16 @@ export const WORKFLOW_EXAMPLES = [
   },
 ] as const;
 
-/** Approved clients (confirmed by Pan) with countries of operation (ISO 3166-1 alpha-2). */
-export const CLIENTS: { name: string; countries: { code: string; name: string }[] }[] = [
-  { name: "Dr. Max", countries: [
+/** Approved clients (confirmed by Pan) with countries of operation (ISO 3166-1 alpha-2).
+ *  slug matches the official mark at src/assets/logos/<slug>.asset.json once supplied. */
+export type Client = { name: string; slug: string; countries: { code: string; name: string }[] };
+
+export const CLIENTS: Client[] = [
+  { name: "Dr. Max", slug: "dr-max", countries: [
     { code: "cz", name: "Czechia" }, { code: "ro", name: "Romania" }, { code: "it", name: "Italy" },
     { code: "sk", name: "Slovakia" }, { code: "rs", name: "Serbia" }, { code: "pl", name: "Poland" } ] },
-  { name: "Atida", countries: [ { code: "it", name: "Italy" }, { code: "fr", name: "France" }, { code: "es", name: "Spain" } ] },
-  { name: "PLUS", countries: [ { code: "nl", name: "Netherlands" } ] },
-  { name: "Naivas", countries: [ { code: "ke", name: "Kenya" } ] },
-  { name: "Skroutz", countries: [ { code: "gr", name: "Greece" } ] },
+  { name: "Atida", slug: "atida", countries: [ { code: "it", name: "Italy" }, { code: "fr", name: "France" }, { code: "es", name: "Spain" } ] },
+  { name: "PLUS", slug: "plus", countries: [ { code: "nl", name: "Netherlands" } ] },
+  { name: "Naivas", slug: "naivas", countries: [ { code: "ke", name: "Kenya" } ] },
+  { name: "Skroutz", slug: "skroutz", countries: [ { code: "gr", name: "Greece" } ] },
 ];
