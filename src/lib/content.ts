@@ -279,6 +279,14 @@ export const NEWS = [
   },
 ];
 
+/** The customer story the homepage features: the Dr. Max partnership announcement. */
+export const FEATURED_STORY_SLUG =
+  "convert-group-empowers-dr-max-with-europes-largest-insights-collaboration-program-in-retail-pharmacy";
+
+export const FEATURED_STORY = NEWS.find((n) => n.slug === FEATURED_STORY_SLUG)!;
+
+
+
 
 export const formatNewsDate = (date: string) =>
   new Date(`${date}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });

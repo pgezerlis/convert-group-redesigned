@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
-import { CLIENTS, METHOD, SOLUTIONS } from "@/lib/content";
+import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -163,15 +163,25 @@ function Home() {
       <section className="section bg-pale">
         <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-6">
-            <Pending label="Approved customer photograph or logo" />
+            <Link to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="block">
+              <img
+                src={FEATURED_STORY.image}
+                alt="Dr. Max and Convert Group partnership announcement"
+                loading="lazy"
+                className="h-auto w-full rounded-lg"
+              />
+            </Link>
           </div>
           <div className="lg:col-span-6 lg:pl-8">
             <p className="eyebrow mb-4">Success in practice</p>
-            <h2>A featured customer story will appear here.</h2>
-            <p className="body-lg mt-5 text-muted-foreground">
-              Placeholder in this preview. We’ll publish one approved story with its customer, context, Convert’s role and measured results — each with period, baseline and source.
-            </p>
-            <ArrowLink to="/success-stories" className="mt-8">All success stories</ArrowLink>
+            <time dateTime={FEATURED_STORY.date} className="data-label text-muted-foreground">
+              {formatNewsDate(FEATURED_STORY.date)}
+            </time>
+            <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-[2.25rem]">{FEATURED_STORY.title}</h2>
+            <p className="body-lg mt-5 text-muted-foreground">{FEATURED_STORY.summary}</p>
+            <ArrowLink to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="mt-8">
+              Read the story
+            </ArrowLink>
           </div>
         </div>
       </section>
