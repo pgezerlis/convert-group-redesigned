@@ -11,6 +11,7 @@
 
 - Site nav/CTA config lives in src/lib/site.ts and page copy/example data in src/lib/content.ts; why: one source of truth for labels, destinations and illustrative content.
 - News articles use a shared content record and individual child routes under /company/news; why: full original articles remain readable and directly linkable on this site rather than depending on the old site.
+- Partnership graphics compose original approved logo files without generative redrawing and use shared news asset pointers; why: brand identities stay exact and the homepage and article display the same artwork.
 - Brand tokens (--cg-*) in src/styles.css are mapped to shadcn semantic names; why: the design spec forbids a second palette and requires a light-only theme.
 - A navy section is opt-in only and must use the `on-dark` utility (navy background, white headings, pale body text, cyan links) with brand-token colours; why: the site is light by default, so any blue section is a deliberate choice like the hero's background switch, never a second palette or a dark mode.
 - Unapproved content renders via the `Pending` placeholder component, never invented facts; why: brand spec forbids fabricated proof.
