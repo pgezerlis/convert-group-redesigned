@@ -7,6 +7,8 @@
 - [x] Add a hero switch that turns the first section's background into convertgroup.com's navy
 - [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
 - [x] Make the five insight app shots larger and give them a subtle entrance, slow zoom and sheen
+- [x] Give each of the five services its own line mark with a cyan hover spine on the homepage and solutions lists
+
 
 - [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
 - [x] Add the supplied app screenshots to all five monetisable insight areas
@@ -16,4 +18,4 @@
 - [x] Approved customer marks in the trusted-by strip (Dr. Max, Atida, PLUS, Naivas, Skroutz)
 - [x] Replace the homepage figure with a Zenlytic-inspired animation and remove its illustrative-data caption
 - [x] Feature the Dr. Max partnership story in the homepage "Success in practice" section
-- [ ] Waiting on client: photography, success stories, team profiles, contact details, legal links, contact-form delivery service
+- [ ] Waiting on client: photography, success stories, team profiles, legal links, contact-form delivery service
