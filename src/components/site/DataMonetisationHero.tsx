@@ -320,25 +320,25 @@ export default function DataMonetisationHero({
       };
 
       // collaboration: value orbits each party and flows into the shared centre
-      if (settled[1] > 0) {
+      if (s1 > 0) {
         for (let k = 0; k < 3; k++) {
           const c = vennCentre(k);
           for (let m = 0; m < 2; m++) {
             const ang = now / 1500 + k * 2.1 + m * Math.PI;
-            bead(c.x + Math.cos(ang) * VENN_R, c.y + Math.sin(ang) * VENN_R, 0, settled[1] * 0.9, 2.4, ACC);
+            bead(c.x + Math.cos(ang) * VENN_R, c.y + Math.sin(ang) * VENN_R, 0, s1 * 0.9, 2.4, ACC);
           }
           const t = (now / 2200 + k / 3) % 1;
           const s = 1 - easeInOut(t);
-          bead(c.x * 2.2 * s, (c.y + 0.04) * 2.2 * s - 0.04, 0, settled[1] * Math.sin(Math.PI * t), 2.8);
+          bead(c.x * 2.2 * s, (c.y + 0.04) * 2.2 * s - 0.04, 0, s1 * Math.sin(Math.PI * t), 2.8);
         }
         const pulse = 0.5 + 0.5 * Math.sin(now / 420);
-        bead(0, -0.04, 0, settled[1] * (0.5 + 0.5 * pulse), 3 + pulse * 1.5);
+        bead(0, -0.04, 0, s1 * (0.5 + 0.5 * pulse), 3 + pulse * 1.5);
       }
       // profit: a bead riding the growth curve
-      if (settled[2] > 0) {
+      if (s2 > 0) {
         const t = (now / 3000) % 1;
         const c = curveAt(t);
-        bead(c.x, c.y, c.z, settled[2] * Math.min(1, Math.sin(Math.PI * t) * 2), 3.2);
+        bead(c.x, c.y, c.z, s2 * Math.min(1, Math.sin(Math.PI * t) * 2), 3.2);
       }
     };
 
