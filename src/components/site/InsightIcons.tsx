@@ -7,7 +7,7 @@ const common = {
   focusable: false as const,
 };
 
-export function SupplierBrandsIcon({ className }: { className?: string }) {
+export function SupplierBrandsIcon({ className }: { className?: string | undefined }) {
   return (
     <svg {...common} className={className}>
       <rect x="5" y="16" width="6" height="11" rx="1.5" fill="var(--cg-navy)" className="cg-ico-bar cg-ico-bar-1" />
@@ -17,7 +17,7 @@ export function SupplierBrandsIcon({ className }: { className?: string }) {
   );
 }
 
-export function MarketplaceSellersIcon({ className }: { className?: string }) {
+export function MarketplaceSellersIcon({ className }: { className?: string | undefined }) {
   return (
     <svg {...common} className={className}>
       <circle cx="13.5" cy="13.5" r="8" stroke="var(--cg-navy)" strokeWidth="2" />
@@ -29,7 +29,7 @@ export function MarketplaceSellersIcon({ className }: { className?: string }) {
   );
 }
 
-export function DeliveryPartnersIcon({ className }: { className?: string }) {
+export function DeliveryPartnersIcon({ className }: { className?: string | undefined }) {
   return (
     <svg {...common} className={className}>
       <ellipse cx="16" cy="28" rx="6" ry="1.8" fill="var(--cg-cyan)" className="cg-ico-halo" />
