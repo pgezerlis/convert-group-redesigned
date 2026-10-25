@@ -62,7 +62,7 @@ function Home() {
           <div className="flex flex-1 flex-col gap-3">
             <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {CLIENTS.map((c) => (
-                <li key={c.slug} className="flex min-h-20 w-[calc(50%-0.375rem)] items-center justify-center rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(20%-0.8rem)]">
+                <li key={c.slug} className="flex min-h-16 w-[calc(50%-0.375rem)] items-center justify-center px-3 py-3 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(20%-0.8rem)]">
                   <ClientLogo client={c} />
                 </li>
               ))}
