@@ -68,7 +68,7 @@ export function DataValueAnimation() {
         const nt = goldenAngle * i;
         network.push([(node[0] ?? 0) + Math.cos(nt) * nr * 0.5, (node[1] ?? 0) + ny * 0.5, Math.sin(nt) * nr * 0.5]);
         links.push(i % 5 === 0 ? [i % 3, (i * 0.618) % 1] : []);
-        const color = colors[i % 13 === 0 ? 1 : i % 5 === 0 ? 3 : i % 3 === 0 ? 2 : 0];
+        const color = colors[i % 5 === 0 ? (i % 4 === 0 ? 1 : 0) : i % 7 === 0 ? 3 : i % 3 === 0 ? 2 : 0];
         if (color) particles.setColorAt(i, color);
       }
       const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
