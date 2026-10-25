@@ -1,5 +1,5 @@
 # Roadmap
-- [x] Add a Hex-inspired FAQ at the end of the homepage before the footer, reusing existing site copy
+- [x] Add a Hex-inspired FAQ reusing existing site copy, placed after the Dr. Max featured story and before the closing CTA
 - [x] Redesign the Dr. Max partnership image to match the website, preserving original logos
 - [x] Add a hero switch that turns the first section's background into convertgroup.com's navy
 - [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
