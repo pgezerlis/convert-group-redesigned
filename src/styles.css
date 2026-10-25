@@ -269,6 +269,84 @@
   stroke-dasharray: 2 7;
 }
 
+/* Insight icons: light looping accents next to the monetisable-insight examples. */
+.cg-ico-bar,
+.cg-ico-dot,
+.cg-ico-halo,
+.cg-ico-pin,
+.cg-ico-pin-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.cg-ico-bar {
+  transform-origin: center bottom;
+  animation: cg-bar-breathe 2.6s ease-in-out infinite;
+}
+.cg-ico-bar-2 {
+  animation-delay: 0.25s;
+}
+.cg-ico-bar-3 {
+  animation-delay: 0.5s;
+}
+.cg-ico-dot {
+  animation: cg-dot-glow 2.6s ease-in-out infinite;
+}
+.cg-ico-dot-2 {
+  animation-delay: 0.4s;
+}
+.cg-ico-dot-3 {
+  animation-delay: 0.8s;
+}
+.cg-ico-halo {
+  transform-origin: center top;
+  animation: cg-halo-pulse 2.2s ease-in-out infinite;
+}
+.cg-ico-pin {
+  animation: cg-pin-bob 2.2s ease-in-out infinite;
+}
+.cg-ico-pin-dot {
+  animation: cg-dot-glow 2.2s ease-in-out infinite;
+}
+
+@keyframes cg-bar-breathe {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.68);
+  }
+}
+@keyframes cg-dot-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes cg-halo-pulse {
+  0%,
+  100% {
+    transform: scaleX(0.82);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleX(1.08);
+    opacity: 0.85;
+  }
+}
+@keyframes cg-pin-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.6px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
