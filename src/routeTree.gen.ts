@@ -17,6 +17,7 @@ import { Route as CompanyAboutUsRouteImport } from './routes/company/about-us'
 import { Route as CompanyCareersRouteImport } from './routes/company/careers'
 import { Route as CompanyNewsRouteImport } from './routes/company/news'
 import { Route as SolutionsAudienceRouteImport } from './routes/solutions/$audience'
+import { Route as CompanyNewsIndexRouteImport } from './routes/company/news.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const SolutionsAudienceRoute = SolutionsAudienceRouteImport.update({
   path: '/solutions/$audience',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompanyNewsIndexRoute = CompanyNewsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompanyNewsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,8 +72,9 @@ export interface FileRoutesByFullPath {
   '/success-stories': typeof SuccessStoriesRoute
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
-  '/company/news': typeof CompanyNewsRoute
+  '/company/news': typeof CompanyNewsRouteWithChildren
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/': typeof CompanyNewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,8 +83,8 @@ export interface FileRoutesByTo {
   '/success-stories': typeof SuccessStoriesRoute
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
-  '/company/news': typeof CompanyNewsRoute
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news': typeof CompanyNewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -87,8 +94,9 @@ export interface FileRoutesById {
   '/success-stories': typeof SuccessStoriesRoute
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
-  '/company/news': typeof CompanyNewsRoute
+  '/company/news': typeof CompanyNewsRouteWithChildren
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/': typeof CompanyNewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +109,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -109,8 +118,8 @@ export interface FileRouteTypes {
     | '/success-stories'
     | '/company/about-us'
     | '/company/careers'
-    | '/company/news'
     | '/solutions/$audience'
+    | '/company/news'
   id:
     | '__root__'
     | '/'
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,7 +140,7 @@ export interface RootRouteChildren {
   SuccessStoriesRoute: typeof SuccessStoriesRoute
   CompanyAboutUsRoute: typeof CompanyAboutUsRoute
   CompanyCareersRoute: typeof CompanyCareersRoute
-  CompanyNewsRoute: typeof CompanyNewsRoute
+  CompanyNewsRoute: typeof CompanyNewsRouteWithChildren
   SolutionsAudienceRoute: typeof SolutionsAudienceRoute
 }
 
@@ -192,8 +202,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsAudienceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/company/news/': {
+      id: '/company/news/'
+      path: '/'
+      fullPath: '/company/news/'
+      preLoaderRoute: typeof CompanyNewsIndexRouteImport
+      parentRoute: typeof CompanyNewsRoute
+    }
   }
 }
+
+interface CompanyNewsRouteChildren {
+  CompanyNewsIndexRoute: typeof CompanyNewsIndexRoute
+}
+
+const CompanyNewsRouteChildren: CompanyNewsRouteChildren = {
+  CompanyNewsIndexRoute: CompanyNewsIndexRoute,
+}
+
+const CompanyNewsRouteWithChildren = CompanyNewsRoute._addFileChildren(
+  CompanyNewsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -202,7 +231,7 @@ const rootRouteChildren: RootRouteChildren = {
   SuccessStoriesRoute: SuccessStoriesRoute,
   CompanyAboutUsRoute: CompanyAboutUsRoute,
   CompanyCareersRoute: CompanyCareersRoute,
-  CompanyNewsRoute: CompanyNewsRoute,
+  CompanyNewsRoute: CompanyNewsRouteWithChildren,
   SolutionsAudienceRoute: SolutionsAudienceRoute,
 }
 export const routeTree = rootRouteImport
