@@ -3,8 +3,8 @@ import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
 /** Per-section navy background: every homepage section owns its own toggle. */
-export function useNavy() {
-  const [navy, onNavyChange] = useState(false);
+export function useNavy(defaultNavy = false) {
+  const [navy, onNavyChange] = useState(defaultNavy);
   return { navy, onNavyChange };
 }
 

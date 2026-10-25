@@ -41,7 +41,7 @@ const INSIGHTS = [
 ];
 
 function Home() {
-  const hero = useNavy();
+  const hero = useNavy(true);
   const proof = useNavy();
   const opportunity = useNavy();
   const method = useNavy();
