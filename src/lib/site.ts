@@ -31,3 +31,8 @@ export const isGroup = (i: NavItem): i is NavGroup => "children" in i;
 
 export const POSITIONING =
   "Convert Group helps retailers, marketplaces and delivery apps make data monetisation a core internal capability.";
+
+export const CONTACT = {
+  email: "info@convertgroup.com",
+  address: "85 Great Portland St, London W1W 7LT, United Kingdom",
+};

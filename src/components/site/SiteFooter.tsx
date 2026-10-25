@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { NAV, POSITIONING, isGroup } from "@/lib/site";
+import { CONTACT, NAV, POSITIONING, isGroup } from "@/lib/site";
 import { Logo } from "./Logo";
 
 export function SiteFooter() {
