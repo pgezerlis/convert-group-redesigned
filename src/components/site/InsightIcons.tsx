@@ -1,3 +1,5 @@
+import type { ReactElement } from "react";
+
 const common = {
   viewBox: "0 0 32 32",
   fill: "none",
@@ -43,7 +45,7 @@ export function DeliveryPartnersIcon({ className }: { className?: string }) {
   );
 }
 
-const ICONS: Record<string, (props: { className?: string }) => React.JSX.Element> = {
+const ICONS: Record<string, (props: { className?: string }) => ReactElement> = {
   "Supplier brands": SupplierBrandsIcon,
   "Marketplace sellers": MarketplaceSellersIcon,
   "Delivery partners": DeliveryPartnersIcon,
