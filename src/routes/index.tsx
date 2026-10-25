@@ -1,14 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
 import { InsightIcon } from "@/components/site/InsightIcons";
 import { WorksWhatYouHave } from "@/components/site/WorksWhatYouHave";
 import { SiteFAQ } from "@/components/site/SiteFAQ";
+import { NavyRow, NavySwitch, useNavy } from "@/components/site/NavySection";
 import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { PresenceMap } from "@/components/site/PresenceMap";
-import { Switch } from "@/components/ui/switch";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -40,12 +39,17 @@ const INSIGHTS = [
 ];
 
 function Home() {
-  const [navy, setNavy] = useState(false);
+  const hero = useNavy();
+  const proof = useNavy();
+  const opportunity = useNavy();
+  const method = useNavy();
+  const solutions = useNavy();
+  const story = useNavy();
 
   return (
     <>
       {/* 1 · Hero */}
-      <section className={cn("transition-colors duration-300", navy && "on-dark")}>
+      <section className={cn("transition-colors duration-300", hero.navy && "on-dark")}>
         <div className="container-cg grid gap-12 pb-12 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-20 lg:pt-16">
           <div className="lg:col-span-6 lg:pt-6">
             <p className="eyebrow mb-6">Data monetisation. Built into your business.</p>
@@ -54,74 +58,73 @@ function Home() {
               We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <TalkToUs variant={navy ? "cyan" : "primary"} />
+              <TalkToUs variant={hero.navy ? "cyan" : "primary"} />
               <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
             </div>
-            <label className="mt-10 flex w-fit cursor-pointer items-center gap-3 select-none">
-              <Switch
-                checked={navy}
-                onCheckedChange={setNavy}
-                className={navy ? "data-[state=unchecked]:bg-pale/40 data-[state=checked]:bg-cyan" : undefined}
-              />
-              <span className="text-sm text-muted-foreground">Navy background</span>
-            </label>
+            <NavySwitch navy={hero.navy} onNavyChange={hero.onNavyChange} className="mt-10" />
           </div>
           <div className="min-w-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
             {/* Brand tokens: ink = --cg-navy, accent = --cg-link, glow = --cg-cyan */}
             <DataMonetisationHero
               className="h-[380px] w-full sm:h-[460px] lg:h-[540px]"
-              ink={navy ? "var(--cg-pale-blue)" : "var(--cg-navy)"}
-              accent={navy ? "var(--cg-cyan)" : "var(--cg-link)"}
-              glow={navy ? "var(--cg-white)" : "var(--cg-cyan)"}
+              ink={hero.navy ? "var(--cg-pale-blue)" : "var(--cg-navy)"}
+              accent={hero.navy ? "var(--cg-cyan)" : "var(--cg-link)"}
+              glow={hero.navy ? "var(--cg-white)" : "var(--cg-cyan)"}
             />
           </div>
         </div>
       </section>
 
       {/* 2 · Credibility strip */}
-      <section aria-labelledby="proof-h" className="border-y border-border">
-        <div className="container-cg flex flex-col gap-6 py-10 lg:flex-row lg:items-center lg:gap-12">
-          <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams across 12 countries</h2>
-          <div className="flex flex-1 flex-col gap-3">
-            <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              {CLIENTS.map((c) => (
-                <li key={c.slug} className="flex min-h-16 w-[calc(50%-0.375rem)] items-center justify-center px-3 py-3 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(20%-0.8rem)]">
-                  <ClientLogo client={c} />
-                </li>
-              ))}
-            </ul>
-            {CLIENTS.some((c) => !hasClientMark(c.slug)) && (
-              <p className="data-label text-muted-foreground">
-                Names stand in for each client’s official mark until the files are supplied.
-              </p>
-            )}
+      <section aria-labelledby="proof-h" className={cn("border-y border-border transition-colors duration-300", proof.navy && "on-dark")}>
+        <div className="container-cg py-10">
+          <NavyRow {...proof} />
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-12">
+            <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams across 12 countries</h2>
+            <div className="flex flex-1 flex-col gap-3">
+              <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
+                {CLIENTS.map((c) => (
+                  <li key={c.slug} className="flex min-h-16 w-[calc(50%-0.375rem)] items-center justify-center px-3 py-3 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(20%-0.8rem)]">
+                    <ClientLogo client={c} />
+                  </li>
+                ))}
+              </ul>
+              {CLIENTS.some((c) => !hasClientMark(c.slug)) && (
+                <p className="data-label text-muted-foreground">
+                  Names stand in for each client’s official mark until the files are supplied.
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 3 · Opportunity */}
-      <section className="section">
-        <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
-            <SectionIntro eyebrow="The commercial opportunity" title="Your data is already valuable to your partners.">
-              <p>
-                Suppliers, sellers and brand partners make better decisions with what you see every day. Most organisations share fragments of it informally. A defined offer, buyer and price turns that into a revenue line your team runs.
-              </p>
-            </SectionIntro>
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7">
-            <p className="data-label mb-3 text-muted-foreground">Examples of monetisable insight</p>
-            <ul className="border-t border-navy">
-              {INSIGHTS.map((i) => (
-                <li key={i.who} className="grid gap-2 border-b border-border py-6 sm:grid-cols-[180px_1fr] sm:gap-6">
-                  <h3 className="flex items-center gap-3 text-[1.25rem] tracking-normal">
-                    <InsightIcon who={i.who} className="h-7 w-7 shrink-0" />
-                    {i.who}
-                  </h3>
-                  <p className="body-lg text-muted-foreground">{i.what}</p>
-                </li>
-              ))}
-            </ul>
+      <section className={cn("section transition-colors duration-300", opportunity.navy && "on-dark")}>
+        <div className="container-cg">
+          <NavyRow {...opportunity} />
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-5">
+              <SectionIntro eyebrow="The commercial opportunity" title="Your data is already valuable to your partners.">
+                <p>
+                  Suppliers, sellers and brand partners make better decisions with what you see every day. Most organisations share fragments of it informally. A defined offer, buyer and price turns that into a revenue line your team runs.
+                </p>
+              </SectionIntro>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7">
+              <p className="data-label mb-3 text-muted-foreground">Examples of monetisable insight</p>
+              <ul className="border-t border-navy">
+                {INSIGHTS.map((i) => (
+                  <li key={i.who} className="grid gap-2 border-b border-border py-6 sm:grid-cols-[180px_1fr] sm:gap-6">
+                    <h3 className="flex items-center gap-3 text-[1.25rem] tracking-normal">
+                      <InsightIcon who={i.who} className="h-7 w-7 shrink-0" />
+                      {i.who}
+                    </h3>
+                    <p className="body-lg text-muted-foreground">{i.what}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -129,8 +132,9 @@ function Home() {
       <MonetisableInsights />
 
       {/* 4 · How we do it */}
-      <section className="section bg-surface">
+      <section className={cn("section transition-colors duration-300", method.navy ? "on-dark" : "bg-surface")}>
         <div className="container-cg">
+          <NavyRow {...method} />
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionIntro eyebrow="How we do it" title="From first opportunity to a capability you own." />
             <ArrowLink to="/how-we-do-it" className="shrink-0">Our approach in detail</ArrowLink>
@@ -154,8 +158,9 @@ function Home() {
       </section>
 
       {/* 5 · Solutions */}
-      <section className="section">
+      <section className={cn("section transition-colors duration-300", solutions.navy && "on-dark")}>
         <div className="container-cg">
+          <NavyRow {...solutions} />
           <SectionIntro eyebrow="Solutions" title="Built around how your business works." />
           <ul className="mt-12 border-t border-navy">
             {SOLUTIONS.map((s) => (
@@ -185,28 +190,31 @@ function Home() {
       <WorksWhatYouHave />
 
       {/* 7 · Featured story */}
-      <section className="section bg-pale">
-        <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-6">
-            <Link to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="block">
-              <img
-                src={FEATURED_STORY.image}
-                alt="Dr. Max and Convert Group partnership announcement"
-                loading="lazy"
-                className="h-auto w-full rounded-lg"
-              />
-            </Link>
-          </div>
-          <div className="lg:col-span-6 lg:pl-8">
-            <p className="eyebrow mb-4">Success in practice</p>
-            <time dateTime={FEATURED_STORY.date} className="data-label text-muted-foreground">
-              {formatNewsDate(FEATURED_STORY.date)}
-            </time>
-            <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-[2.25rem]">{FEATURED_STORY.title}</h2>
-            <p className="body-lg mt-5 text-muted-foreground">{FEATURED_STORY.summary}</p>
-            <ArrowLink to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="mt-8">
-              Read the story
-            </ArrowLink>
+      <section className={cn("section transition-colors duration-300", story.navy ? "on-dark" : "bg-pale")}>
+        <div className="container-cg">
+          <NavyRow {...story} />
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-6">
+              <Link to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="block">
+                <img
+                  src={FEATURED_STORY.image}
+                  alt="Dr. Max and Convert Group partnership announcement"
+                  loading="lazy"
+                  className="h-auto w-full rounded-lg"
+                />
+              </Link>
+            </div>
+            <div className="lg:col-span-6 lg:pl-8">
+              <p className="eyebrow mb-4">Success in practice</p>
+              <time dateTime={FEATURED_STORY.date} className="data-label text-muted-foreground">
+                {formatNewsDate(FEATURED_STORY.date)}
+              </time>
+              <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-[2.25rem]">{FEATURED_STORY.title}</h2>
+              <p className="body-lg mt-5 text-muted-foreground">{FEATURED_STORY.summary}</p>
+              <ArrowLink to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="mt-8">
+                Read the story
+              </ArrowLink>
+            </div>
           </div>
         </div>
       </section>
