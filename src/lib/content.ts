@@ -177,17 +177,10 @@ export const SOLUTIONS: SolutionContent[] = [
 
 export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === slug);
 
-/** Conceptual homepage sequence: no client performance, prices or live AI claims. */
-export const HERO_WORKFLOW = {
-  question: "What could we offer our supplier partners?",
-  signals: ["Category trends", "Basket patterns", "Promotion response"],
-  offer: "Category intelligence subscription",
-  buyer: "Supplier brand teams",
-  scope: "Aggregated category insights",
-  cadence: "Monthly insight review",
-  owner: "Your commercial team",
-  review: "Validate demand, pricing and permitted data use.",
-  closing: "Your offer. Your relationships. Your team.",
+/** Abstract homepage animation labels, not performance data or product claims. */
+export const HERO_ANIMATION = {
+  label: "Data. Insight. Commercial value.",
+  description: "An abstract rotating sphere of data points that organise into structured columns and flow back together.",
 } as const;
 
 export const WORKFLOW_EXAMPLES = [
