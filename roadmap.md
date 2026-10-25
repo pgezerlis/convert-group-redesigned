@@ -2,4 +2,5 @@
 - [x] Convert Group redesign per convertgroup-design.md (homepage + all interior routes)
 - [x] Use uploaded logo file unaltered in header + favicon
 - [x] Approved customer marks in the trusted-by strip (Dr. Max, Atida, PLUS, Naivas, Skroutz)
+- [ ] Replace the homepage figure with a Zenlytic-inspired animation and remove its illustrative-data caption
 - [ ] Waiting on client: photography, success stories, team profiles, contact details, legal links, contact-form delivery service
