@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Site nav/CTA config lives in src/lib/site.ts and page copy/example data in src/lib/content.ts; why: one source of truth for labels, destinations and illustrative content.
+- Footer legal and social destinations use shared records in src/lib/site.ts and link to verified official external pages; why: policies and profiles stay authoritative without duplicating or inventing legal content.
 - Service definitions, availability states and commercial terms are shared records in src/lib/content.ts; why: homepage, approach page and FAQ must distinguish current offers from future product directions consistently.
 - The approach page uses COMMERCIAL_APPROACH workstreams separately from the METHOD service catalogue, both in src/lib/content.ts; why: commercial programme design must not redefine the board-approved current services.
 - Homepage FAQ uses the shared FAQS content record and the existing accessible accordion, placed after the Dr. Max featured story and before the closing CTA; why: answers reuse established site copy and the section reads as the story's follow-up rather than a page-end block.
