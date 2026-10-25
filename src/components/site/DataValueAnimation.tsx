@@ -114,9 +114,9 @@ export function DataValueAnimation() {
         if (current !== stageRef.current) { stageRef.current = current; setStage(current); }
         const from = shapes[segment] ?? sphere;
         const to = shapes[(segment + 1) % 3] ?? sphere;
-        const flow = (i: number, base: number[]) => {
+        const flow = (i: number, base: number[], shared: boolean) => {
           const link = links[i];
-          if (base !== network || !link || link.length < 2) return base;
+          if (!shared || !link || link.length < 2) return base;
           const s0 = nodes[link[0] ?? 0] ?? [0, 0, 0];
           const s1 = nodes[((link[0] ?? 0) + 1) % 3] ?? [0, 0, 0];
           const t = ((link[1] ?? 0) + elapsed * 0.18) % 1;
@@ -127,8 +127,8 @@ export function DataValueAnimation() {
           const fa = from[i];
           const fb = to[i];
           if (!fa || !fb) continue;
-          const a = motion.matches ? flow(i, fb) : flow(i, fa);
-          const b = flow(i, fb);
+          const a = motion.matches ? flow(i, fb, to === network) : flow(i, fa, from === network);
+          const b = flow(i, fb, to === network);
           const ripple = motion.matches ? 1 : 1 + Math.sin(elapsed * 1.2 + i * 0.03) * 0.025 * spin;
           dummy.position.set(
             ((a[0] ?? 0) * (1 - eased) + (b[0] ?? 0) * eased) * ripple,
