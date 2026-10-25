@@ -1,7 +1,9 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { ClosingCTA, PageHero, Pending, SectionIntro } from "@/components/site/ui";
+import { ClosingCTA, PageHero, SectionIntro } from "@/components/site/ui";
+import { ClientLogo } from "@/components/site/ClientLogo";
 import { ServiceIcon } from "@/components/site/ServiceIcons";
-import { METHOD, getSolution } from "@/lib/content";
+import { METHOD, getSolution, getSolutionClients } from "@/lib/content";
+
 
 
 export const Route = createFileRoute("/solutions/$audience")({
@@ -110,7 +112,14 @@ function Page() {
       <section className="section border-t border-border">
         <div className="container-cg grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5"><SectionIntro eyebrow="Proof" title={`${s.label} we’ve worked with`} /></div>
-          <div className="lg:col-span-7"><Pending label={`Approved ${s.label.toLowerCase()} story`} ratio="aspect-[3/1]" /></div>
+          <div className="lg:col-span-7">
+            <ul className="flex flex-wrap items-center gap-x-10 gap-y-6">
+              {getSolutionClients(s.slug).map((c) => (
+                <li key={c.slug} className="flex items-center"><ClientLogo client={c} /></li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </section>
 

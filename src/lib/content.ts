@@ -193,8 +193,8 @@ export type SolutionContent = {
   deliverables: string[];
   /** Approved client marks shown as proof on this audience's page (CLIENTS slugs). */
   clients: string[];
-
   situation: { heading: string; body: string }[];
+
   example: {
     caption: string;
     question: string;
@@ -327,6 +327,14 @@ export const SOLUTIONS: SolutionContent[] = [
 ];
 
 export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === slug);
+
+/** Approved marks for one audience's proof section, in the site's client order. */
+export const getSolutionClients = (slug: string): Client[] => {
+  const s = getSolution(slug);
+  if (!s) return [];
+  return CLIENTS.filter((c) => s.clients.includes(c.slug));
+};
+
 
 /** FAQ answers reuse existing site copy rather than adding new product claims. */
 /** Homepage MCP section copy; official tool marks only (simple-icons / Microsoft's own SVG), never redrawn. */
