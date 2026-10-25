@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Add a stylised presence map with the 12 countries to the closing CTA section on the homepage
 - [x] Add a Hex-inspired FAQ reusing existing site copy, placed after the Dr. Max featured story and before the closing CTA
 - [x] Redesign the Dr. Max partnership image to match the website, preserving original logos
 - [x] Add a hero switch that turns the first section's background into convertgroup.com's navy

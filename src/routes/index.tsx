@@ -7,6 +7,7 @@ import { InsightIcon } from "@/components/site/InsightIcons";
 import { WorksWhatYouHave } from "@/components/site/WorksWhatYouHave";
 import { SiteFAQ } from "@/components/site/SiteFAQ";
 import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
+import { PresenceMap } from "@/components/site/PresenceMap";
 import { Switch } from "@/components/ui/switch";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -211,7 +212,7 @@ function Home() {
       </section>
 
       <SiteFAQ />
-      <ClosingCTA />
+      <ClosingCTA visual={<PresenceMap />} />
     </>
   );
 }
