@@ -81,15 +81,20 @@ export function Pending({ label, ratio = "aspect-[4/3]", className }: { label: s
   );
 }
 
-export function ClosingCTA({ title = "Let’s talk about what your data could become.", body = "Tell us where you are today. We’ll explore the opportunity together and what it would take for your team to own it." }: { title?: string; body?: string }) {
+export function ClosingCTA({ title = "Let’s talk about what your data could become.", body = "Tell us where you are today. We’ll explore the opportunity together and what it would take for your team to own it.", visual }: { title?: string; body?: string; visual?: ReactNode }) {
   return (
     <section className="on-dark">
       <div className="container-cg flex flex-col gap-8 py-16 md:py-20 lg:flex-row lg:items-end lg:justify-between lg:py-24">
-        <div className="max-w-[40rem]">
+        <div className={cn("max-w-[40rem]", visual && "lg:max-w-[34rem]")}>
           <h2>{title}</h2>
           <p className="body-lg mt-5 opacity-85">{body}</p>
+          {visual && <TalkToUs variant="cyan" className="mt-8" />}
         </div>
-        <TalkToUs variant="cyan" className="self-start lg:self-auto" />
+        {visual ? (
+          <div className="w-full max-w-md self-start lg:w-[38%] lg:max-w-none">{visual}</div>
+        ) : (
+          <TalkToUs variant="cyan" className="self-start lg:self-auto" />
+        )}
       </div>
     </section>
   );

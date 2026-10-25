@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { COUNTRIES } from "@/lib/content";
 import { ClosingCTA, PageHero, SectionIntro } from "@/components/site/ui";
 
 export const Route = createFileRoute("/company/about-us")({
@@ -15,7 +16,6 @@ export const Route = createFileRoute("/company/about-us")({
   component: Page,
 });
 
-const COUNTRIES = ["Czechia", "France", "Germany", "Greece", "Italy", "Kenya", "Netherlands", "Poland", "Romania", "Serbia", "Slovakia", "Spain"];
 
 const FACTS = [
   { value: "35+", label: "Retailers" },

@@ -10,6 +10,9 @@ import claudeMark from "@/assets/tools/claude.svg";
 import chatgptMark from "@/assets/tools/openai.svg";
 import copilotMark from "@/assets/tools/microsoftcopilot.svg";
 
+/** The 12 countries where Convert Group operates (shared by About Us and the presence map). */
+export const COUNTRIES = ["Czechia", "France", "Germany", "Greece", "Italy", "Kenya", "Netherlands", "Poland", "Romania", "Serbia", "Slovakia", "Spain"];
+
 
 /** Original homepage copy; only user-supplied application captures are shown. */
 export const MONETISABLE_INSIGHTS = {
