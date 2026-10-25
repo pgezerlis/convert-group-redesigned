@@ -81,6 +81,7 @@ export function ContactForm() {
           <option>Retailer</option>
           <option>Marketplace</option>
           <option>Delivery app</option>
+          <option>Brand</option>
           <option>Other</option>
         </select>
       </div>
