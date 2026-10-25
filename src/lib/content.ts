@@ -13,7 +13,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "market-shares",
       title: "Market Shares",
       description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
-      screenshot: null,
+      screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1920, height: 1152 },
     },
     {
       slug: "sales-growth-insights",
