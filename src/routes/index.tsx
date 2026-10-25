@@ -58,9 +58,9 @@ function Home() {
         <div className="container-cg flex flex-col gap-6 py-10 lg:flex-row lg:items-center lg:gap-12">
           <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams</h2>
           <div className="flex flex-1 flex-col gap-3">
-            <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {CLIENTS.map((c) => (
-                <li key={c.slug} className="flex flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center last:col-span-2 sm:last:col-span-1">
+                <li key={c.slug} className="flex w-[calc(50%-0.375rem)] flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-auto lg:flex-1">
                   <ClientLogo client={c} />
                   <span className="flex flex-wrap justify-center gap-0.5">
                     {c.countries.map((k) => (
