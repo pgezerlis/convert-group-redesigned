@@ -6,6 +6,10 @@ import salesGrowth from "@/assets/insights/sales-growth.png.asset.json";
 import siteNavigation from "@/assets/insights/site-navigation-saas-shot-transparent.png.asset.json";
 import retailMedia from "@/assets/insights/retail-media-strategy.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
+import claudeMark from "@/assets/tools/claude.svg";
+import chatgptMark from "@/assets/tools/openai.svg";
+import copilotMark from "@/assets/tools/microsoftcopilot.svg";
+
 
 /** Original homepage copy; only user-supplied application captures are shown. */
 export const MONETISABLE_INSIGHTS = {
@@ -222,6 +226,22 @@ export const SOLUTIONS: SolutionContent[] = [
 export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === slug);
 
 /** FAQ answers reuse existing site copy rather than adding new product claims. */
+/** Homepage MCP section copy; official tool marks only (simple-icons / Microsoft's own SVG), never redrawn. */
+export const MCP_SECTION = {
+  eyebrow: "Built on MCP",
+  title: "Works with what you have.",
+  body: [
+    "Your brand partners don’t need another dashboard. Through Convert’s MCP, the data you share reaches the AI tools their teams already use — Claude, ChatGPT, Copilot — and becomes part of the work they do there.",
+    "You keep control of what each partner can reach; they bring their own tools to it.",
+  ],
+  toolsLabel: "Tools your partners already use",
+  tools: [
+    { name: "Claude", mark: claudeMark, alt: "Claude logo" },
+    { name: "ChatGPT", mark: chatgptMark, alt: "ChatGPT logo" },
+    { name: "Copilot", mark: copilotMark, alt: "Copilot logo" },
+  ],
+};
+
 export const FAQS = [
   {
     id: "what-we-do",
