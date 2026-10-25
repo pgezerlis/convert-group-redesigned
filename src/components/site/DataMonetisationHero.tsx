@@ -57,7 +57,9 @@ function rng(seed: number) {
   };
 }
 function hexToRgb(hex: string): [number, number, number] {
-  const h = hex.replace("#", "");
+  const variable = /^var\((--[\w-]+)\)$/.exec(hex)?.[1];
+  const resolved = variable ? getComputedStyle(document.documentElement).getPropertyValue(variable).trim() : hex;
+  const h = resolved.replace("#", "");
   const n = parseInt(h.length === 3 ? h.split("").map((c) => c + c).join("") : h, 16);
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
@@ -162,9 +164,9 @@ const YAW = [-0.6, -0.08, -0.35];
 /* ---------- component ---------- */
 export default function DataMonetisationHero({
   className = "",
-  ink = "#0E2A47",
-  accent = "#2F6BFF",
-  glow = "#E9A21F",
+  ink = "var(--cg-navy)",
+  accent = "var(--cg-link)",
+  glow = "var(--cg-cyan)",
   labels = DEFAULT_LABELS,
   holdMs = 3600,
   morphMs = 1900,
@@ -186,8 +188,10 @@ export default function DataMonetisationHero({
   };
 
   useEffect(() => {
-    const wrap = wrapRef.current!, canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
+    const wrap = wrapRef.current, canvas = canvasRef.current;
+    if (!wrap || !canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let W = 0, H = 0, dpr = 1, N = 0;
