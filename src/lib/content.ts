@@ -217,16 +217,18 @@ export const WORKFLOW_EXAMPLES = [
   },
 ] as const;
 
-/** Approved clients (confirmed by Pan) with countries of operation (ISO 3166-1 alpha-2).
- *  slug matches the official mark at src/assets/logos/<slug>.asset.json once supplied. */
-export type Client = { name: string; slug: string; countries: { code: string; name: string }[] };
+/** Approved clients (confirmed by Pan), in display order.
+ *  slug matches the official mark at src/assets/logos/<slug>.asset.json. */
+export type Client = { name: string; slug: string };
 
 export const CLIENTS: Client[] = [
-  { name: "Dr. Max", slug: "dr-max", countries: [
-    { code: "cz", name: "Czechia" }, { code: "ro", name: "Romania" }, { code: "it", name: "Italy" },
-    { code: "sk", name: "Slovakia" }, { code: "rs", name: "Serbia" }, { code: "pl", name: "Poland" } ] },
-  { name: "Atida", slug: "atida", countries: [ { code: "it", name: "Italy" }, { code: "fr", name: "France" }, { code: "es", name: "Spain" } ] },
-  { name: "PLUS", slug: "plus", countries: [ { code: "nl", name: "Netherlands" } ] },
-  { name: "Naivas", slug: "naivas", countries: [ { code: "ke", name: "Kenya" } ] },
-  { name: "Skroutz", slug: "skroutz", countries: [ { code: "gr", name: "Greece" } ] },
+  { name: "Dr. Max", slug: "dr-max" },
+  { name: "Atida", slug: "atida" },
+  { name: "PLUS", slug: "plus" },
+  { name: "Naivas", slug: "naivas" },
+  { name: "Skroutz", slug: "skroutz" },
+  { name: "efood", slug: "efood" },
+  { name: "Intersport", slug: "intersport" },
+  { name: "Foot Locker", slug: "foot-locker" },
+  { name: "JD", slug: "jd" },
 ];
