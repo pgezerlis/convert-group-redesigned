@@ -45,7 +45,7 @@ export function DeliveryPartnersIcon({ className }: { className?: string }) {
   );
 }
 
-const ICONS: Record<string, (props: { className?: string }) => ReactElement> = {
+const ICONS: Record<string, (props: { className?: string | undefined }) => ReactElement> = {
   "Supplier brands": SupplierBrandsIcon,
   "Marketplace sellers": MarketplaceSellersIcon,
   "Delivery partners": DeliveryPartnersIcon,
