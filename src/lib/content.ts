@@ -29,7 +29,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "customer-insights",
       title: "Customer Insights",
       description: "Unlock powerful data on your audience—whether for your brand, competitors, or categories. Analyse segments like age, gender, income, lifestyle, and buying behavior to spot cross-sell opportunities, high-value bundles, and category affinities that drive sales. With this, brands can fine-tune targeting, personalise offers, and optimise product assortments for better conversions.",
-      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1180 },
+      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1320 },
     },
     {
       slug: "retail-media-strategy",
