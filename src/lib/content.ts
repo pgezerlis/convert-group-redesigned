@@ -6,6 +6,10 @@ import salesGrowth from "@/assets/insights/sales-growth.png.asset.json";
 import siteNavigation from "@/assets/insights/site-navigation-saas-shot-transparent.png.asset.json";
 import retailMedia from "@/assets/insights/retail-media-strategy.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
+import claudeMark from "@/assets/tools/claude.svg";
+import chatgptMark from "@/assets/tools/openai.svg";
+import copilotMark from "@/assets/tools/microsoftcopilot.svg";
+
 
 /** Original homepage copy; only user-supplied application captures are shown. */
 export const MONETISABLE_INSIGHTS = {
