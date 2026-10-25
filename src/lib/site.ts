@@ -7,6 +7,7 @@ export type NavItem = NavLeaf | NavGroup;
 export const PRIMARY_CTA: NavLeaf = { label: "Talk to Sales", to: "/contact" };
 
 export const NAV: NavItem[] = [
+  { label: "Home", to: "/" },
   { label: "How we do it", to: "/how-we-do-it" },
   {
     label: "Solutions",
