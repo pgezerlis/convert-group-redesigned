@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { RetailValueFigure } from "@/components/site/RetailValueFigure";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
@@ -192,7 +192,6 @@ function Home() {
       </section>
 
       <ClosingCTA />
-      <span className="hidden"><Link to="/contact" /></span>
     </>
   );
 }
