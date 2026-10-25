@@ -4,7 +4,7 @@ export type NavLeaf = { label: string; to: string };
 export type NavGroup = { label: string; children: NavLeaf[] };
 export type NavItem = NavLeaf | NavGroup;
 
-export const PRIMARY_CTA: NavLeaf = { label: "Talk to us", to: "/contact" };
+export const PRIMARY_CTA: NavLeaf = { label: "Talk to Sales", to: "/contact" };
 
 export const NAV: NavItem[] = [
   { label: "How we do it", to: "/how-we-do-it" },

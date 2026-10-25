@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { PRIMARY_CTA } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const base =
@@ -14,8 +15,8 @@ export const btn = {
 
 export function TalkToUs({ variant = "primary", className }: { variant?: "primary" | "cyan"; className?: string }) {
   return (
-    <Link to="/contact" className={cn(btn[variant], className)}>
-      Talk to us
+    <Link to={PRIMARY_CTA.to} className={cn(btn[variant], className)}>
+      {PRIMARY_CTA.label}
     </Link>
   );
 }
