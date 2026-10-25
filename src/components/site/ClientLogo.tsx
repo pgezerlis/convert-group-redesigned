@@ -55,7 +55,7 @@ export function ClientLogo({ client, className }: { client: Client; className?: 
         src={mark.url}
         alt={`${client.name} logo`}
         loading="lazy"
-        className={cn("h-7 w-auto max-w-[9rem] object-contain", className)}
+        className={cn("client-mark h-7 w-auto max-w-[9rem] object-contain", className)}
       />
     );
   }

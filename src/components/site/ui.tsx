@@ -8,8 +8,8 @@ const base =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 text-base font-semibold transition-colors duration-150";
 
 export const btn = {
-  primary: cn(base, "bg-navy text-primary-foreground hover:bg-ink"),
-  cyan: cn(base, "bg-cyan text-ink hover:bg-cyan-hover"),
+  primary: cn(base, "bg-primary text-primary-foreground hover:opacity-90"),
+  cyan: cn(base, "bg-cyan text-accent-foreground hover:bg-cyan-hover"),
   secondary: cn(base, "border border-navy text-navy hover:bg-pale"),
 };
 
