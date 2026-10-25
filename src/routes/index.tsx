@@ -134,36 +134,39 @@ function Home() {
       <MonetisableInsights />
 
       {/* 4 · How we do it */}
-      <section className={cn("section transition-colors duration-300", method.navy ? "on-dark" : "bg-surface")}>
+      <section className={cn("py-12 transition-colors duration-300 md:py-16", method.navy ? "on-dark" : "bg-surface")}>
         <div className="container-cg">
           <NavyRow {...method} />
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionIntro eyebrow="What we offer today" title="Five services. One goal: a capability you own.">
-              <p>Internalising data processes, category knowledge and partner delivery takes more than software. We work alongside your team, with cost-conscious support where you need it.</p>
+              <p className="text-[0.9375rem]">Internalising data processes, category knowledge and partner delivery takes more than software. We work alongside your team, with cost-conscious support where you need it.</p>
             </SectionIntro>
             <ArrowLink to="/how-we-do-it" className="shrink-0">Our approach in detail</ArrowLink>
           </div>
-          <ol className="mt-12 border-t border-navy">
+          <ol className="mt-8 border-t border-navy">
             {METHOD.map((m) => (
-              <li key={m.n} className="cg-service grid gap-3 border-b border-border py-8 lg:grid-cols-12 lg:gap-8">
-                <span className="data-label text-lg font-medium text-navy lg:col-span-1">{m.n}</span>
-                <h3 className="flex items-start gap-3 lg:col-span-4">
-                  <ServiceIcon id={m.id} className="mt-0.5 h-6 w-6 shrink-0" />
-                  <span>{m.title}</span>
-                </h3>
-
-                <p className="body-lg text-muted-foreground lg:col-span-4">{m.detail}</p>
-                <dl className="text-sm lg:col-span-3">
-                  <dt className="data-label text-muted-foreground">Output</dt>
-                  <dd className="font-medium text-ink">{m.output}</dd>
-                  <dt className="data-label mt-3 text-muted-foreground">Owned by</dt>
-                  <dd className="text-ink">{m.owner}</dd>
-                </dl>
+              <li key={m.n} className="cg-service grid gap-x-8 gap-y-1.5 border-b border-border py-4 lg:grid-cols-12">
+                <div className="flex items-start gap-3 lg:col-span-4">
+                  <span className="data-label pt-1 text-sm font-medium text-navy">{m.n}</span>
+                  <h3 className="flex items-start gap-2.5 text-[1.0625rem] leading-snug">
+                    <ServiceIcon id={m.id} className="mt-0.5 h-5 w-5 shrink-0" />
+                    <span>{m.title}</span>
+                  </h3>
+                </div>
+                <div className="lg:col-span-8">
+                  <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">{m.detail}</p>
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    <span className="font-medium text-ink">Output:</span> {m.output}
+                    <span aria-hidden className="mx-2">·</span>
+                    <span className="font-medium text-ink">Owned by:</span> {m.owner}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
+
 
       {/* 5 · Solutions */}
       <section className={cn("section transition-colors duration-300", solutions.navy && "on-dark")}>
