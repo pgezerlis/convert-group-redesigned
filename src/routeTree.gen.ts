@@ -17,6 +17,8 @@ import { Route as CompanyAboutUsRouteImport } from './routes/company/about-us'
 import { Route as CompanyCareersRouteImport } from './routes/company/careers'
 import { Route as CompanyNewsRouteImport } from './routes/company/news'
 import { Route as SolutionsAudienceRouteImport } from './routes/solutions/$audience'
+import { Route as CompanyNewsIndexRouteImport } from './routes/company/news.index'
+import { Route as CompanyNewsSlugRouteImport } from './routes/company/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +60,16 @@ const SolutionsAudienceRoute = SolutionsAudienceRouteImport.update({
   path: '/solutions/$audience',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompanyNewsIndexRoute = CompanyNewsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompanyNewsRoute,
+} as any)
+const CompanyNewsSlugRoute = CompanyNewsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CompanyNewsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,8 +78,10 @@ export interface FileRoutesByFullPath {
   '/success-stories': typeof SuccessStoriesRoute
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
-  '/company/news': typeof CompanyNewsRoute
+  '/company/news': typeof CompanyNewsRouteWithChildren
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/$slug': typeof CompanyNewsSlugRoute
+  '/company/news/': typeof CompanyNewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,8 +90,9 @@ export interface FileRoutesByTo {
   '/success-stories': typeof SuccessStoriesRoute
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
-  '/company/news': typeof CompanyNewsRoute
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/$slug': typeof CompanyNewsSlugRoute
+  '/company/news': typeof CompanyNewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -87,8 +102,10 @@ export interface FileRoutesById {
   '/success-stories': typeof SuccessStoriesRoute
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
-  '/company/news': typeof CompanyNewsRoute
+  '/company/news': typeof CompanyNewsRouteWithChildren
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/$slug': typeof CompanyNewsSlugRoute
+  '/company/news/': typeof CompanyNewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +118,8 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/$slug'
+    | '/company/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -109,8 +128,9 @@ export interface FileRouteTypes {
     | '/success-stories'
     | '/company/about-us'
     | '/company/careers'
-    | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/$slug'
+    | '/company/news'
   id:
     | '__root__'
     | '/'
@@ -121,6 +141,8 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/$slug'
+    | '/company/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,7 +152,7 @@ export interface RootRouteChildren {
   SuccessStoriesRoute: typeof SuccessStoriesRoute
   CompanyAboutUsRoute: typeof CompanyAboutUsRoute
   CompanyCareersRoute: typeof CompanyCareersRoute
-  CompanyNewsRoute: typeof CompanyNewsRoute
+  CompanyNewsRoute: typeof CompanyNewsRouteWithChildren
   SolutionsAudienceRoute: typeof SolutionsAudienceRoute
 }
 
@@ -192,8 +214,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsAudienceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/company/news/': {
+      id: '/company/news/'
+      path: '/'
+      fullPath: '/company/news/'
+      preLoaderRoute: typeof CompanyNewsIndexRouteImport
+      parentRoute: typeof CompanyNewsRoute
+    }
+    '/company/news/$slug': {
+      id: '/company/news/$slug'
+      path: '/$slug'
+      fullPath: '/company/news/$slug'
+      preLoaderRoute: typeof CompanyNewsSlugRouteImport
+      parentRoute: typeof CompanyNewsRoute
+    }
   }
 }
+
+interface CompanyNewsRouteChildren {
+  CompanyNewsSlugRoute: typeof CompanyNewsSlugRoute
+  CompanyNewsIndexRoute: typeof CompanyNewsIndexRoute
+}
+
+const CompanyNewsRouteChildren: CompanyNewsRouteChildren = {
+  CompanyNewsSlugRoute: CompanyNewsSlugRoute,
+  CompanyNewsIndexRoute: CompanyNewsIndexRoute,
+}
+
+const CompanyNewsRouteWithChildren = CompanyNewsRoute._addFileChildren(
+  CompanyNewsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -202,7 +252,7 @@ const rootRouteChildren: RootRouteChildren = {
   SuccessStoriesRoute: SuccessStoriesRoute,
   CompanyAboutUsRoute: CompanyAboutUsRoute,
   CompanyCareersRoute: CompanyCareersRoute,
-  CompanyNewsRoute: CompanyNewsRoute,
+  CompanyNewsRoute: CompanyNewsRouteWithChildren,
   SolutionsAudienceRoute: SolutionsAudienceRoute,
 }
 export const routeTree = rootRouteImport
