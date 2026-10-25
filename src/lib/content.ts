@@ -179,8 +179,9 @@ export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === sl
 
 /** Abstract homepage animation labels, not performance data or product claims. */
 export const HERO_ANIMATION = {
-  label: "Data. Insight. Commercial value.",
-  description: "An abstract rotating sphere of data points that organise into structured columns and flow back together.",
+  label: "Data. Collaboration. Commercial value.",
+  stages: ["01 · Your data", "02 · Shared with partners", "03 · New commercial value"],
+  description: "An abstract sphere of data points that splits into three linked partners exchanging data, then builds into rising columns of commercial value, and flows back together.",
 } as const;
 
 export const WORKFLOW_EXAMPLES = [
