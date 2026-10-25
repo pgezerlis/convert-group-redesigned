@@ -1,10 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
+import { Switch } from "@/components/ui/switch";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,10 +37,12 @@ const INSIGHTS = [
 ];
 
 function Home() {
+  const [navy, setNavy] = useState(false);
+
   return (
     <>
       {/* 1 · Hero */}
-      <section>
+      <section className={cn("transition-colors duration-300", navy && "on-dark")}>
         <div className="container-cg grid gap-12 pb-12 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-20 lg:pt-16">
           <div className="lg:col-span-6 lg:pt-6">
             <p className="eyebrow mb-6">Data monetisation. Built into your business.</p>
@@ -46,17 +51,25 @@ function Home() {
               We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <TalkToUs />
+              <TalkToUs variant={navy ? "cyan" : "primary"} />
               <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
             </div>
+            <label className="mt-10 flex w-fit cursor-pointer items-center gap-3 select-none">
+              <Switch
+                checked={navy}
+                onCheckedChange={setNavy}
+                className={navy ? "data-[state=unchecked]:bg-pale/40 data-[state=checked]:bg-cyan" : undefined}
+              />
+              <span className="text-sm text-muted-foreground">Navy background</span>
+            </label>
           </div>
           <div className="min-w-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
             {/* Brand tokens: ink = --cg-navy, accent = --cg-link, glow = --cg-cyan */}
             <DataMonetisationHero
               className="h-[380px] w-full sm:h-[460px] lg:h-[540px]"
-              ink="#1e3257"
-              accent="#006b93"
-              glow="#00b7fa"
+              ink={navy ? "#e1e9fe" : "#1e3257"}
+              accent={navy ? "#00b7fa" : "#006b93"}
+              glow={navy ? "#ffffff" : "#00b7fa"}
             />
           </div>
         </div>
