@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
-import { RetailValueFigure } from "@/components/site/RetailValueFigure";
+import { DataValueAnimation } from "@/components/site/DataValueAnimation";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { CLIENTS, METHOD, SOLUTIONS } from "@/lib/content";
@@ -49,8 +49,8 @@ function Home() {
               <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:flex lg:justify-end">
-            <RetailValueFigure />
+          <div className="lg:col-span-6 lg:flex lg:items-center lg:justify-end">
+            <DataValueAnimation />
           </div>
         </div>
       </section>

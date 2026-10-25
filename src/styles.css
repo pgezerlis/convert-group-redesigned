@@ -231,6 +231,31 @@
   }
 }
 
+.data-value-animation {
+  max-width: 580px;
+  align-self: center;
+}
+.data-value-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.12;
+  touch-action: pan-y;
+}
+.data-value-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.data-value-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--cg-navy);
+  stroke-width: 1;
+  stroke-dasharray: 2 7;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
