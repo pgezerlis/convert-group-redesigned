@@ -3,6 +3,7 @@
 import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asset.json";
 import marketShares from "@/assets/insights/market-shares.png.asset.json";
 import salesGrowth from "@/assets/insights/sales-growth.png.asset.json";
+import siteNavigation from "@/assets/insights/site-navigation-saas-shot-transparent.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 
 /** Original homepage copy; only user-supplied application captures are shown. */
@@ -26,7 +27,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "search-navigation",
       title: "Search & Navigation",
       description: "Share real-time insights into how customers discover, research, and purchase products across your platform. Track and analyse consumer behaviors—from search queries and navigation patterns to purchase pathways. This data empowers brands to refine their digital marketing strategies, personalise customer experiences, and optimise their retail media campaigns for higher engagement.",
-      screenshot: null,
+      screenshot: { src: siteNavigation.url, alt: "Search & Navigation: site search and navigation demand in the app", width: 1920, height: 1236 },
     },
     {
       slug: "customer-insights",
