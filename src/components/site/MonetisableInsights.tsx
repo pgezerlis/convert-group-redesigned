@@ -33,15 +33,17 @@ export function MonetisableInsights() {
             if (shot) {
               return (
                 <TabsContent key={area.slug} value={area.slug} className="mt-0">
-                  <article aria-labelledby={`insight-${area.slug}`} className="py-10">
-                    <div className="max-w-[52rem]">
+                  <article aria-labelledby={`insight-${area.slug}`} className="grid min-h-[640px] items-center gap-8 py-10 sm:min-h-[700px] lg:min-h-[480px] lg:grid-cols-12 lg:gap-12">
+                    <div className="min-w-0 lg:col-span-5">
                       {label}
                       {heading}
                       {body}
                     </div>
-                    <figure className="cg-shot mt-8 border border-border bg-background shadow-sm">
-                      <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" className="block h-auto w-full" />
-                    </figure>
+                    <div className="min-w-0 lg:col-span-7">
+                      <figure className="cg-shot border border-border bg-background shadow-sm lg:flex lg:h-[480px] lg:items-center">
+                        <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" className="block h-auto w-full lg:h-full lg:w-full lg:object-contain" />
+                      </figure>
+                    </div>
                   </article>
                 </TabsContent>
               );
