@@ -20,6 +20,18 @@ export const MONETISABLE_INSIGHTS = {
   intro: "Leverage data to fuel smarter, more effective strategies. With Convert Group, you can offer brands comprehensive insights across key areas of the customer journey, enabling them to optimise campaigns, increase ROI, and drive growth.",
   areas: [
     {
+      slug: "ai-assistant",
+      title: "AI Brand Assistant",
+      description: "An AI assistant that turns your data and outside signals — weather, health trends, calendar moments, prices — into concrete advice for each brand: what to stock, where, and when to spend.",
+      screenshot: null,
+      advice: [
+        { brand: "Grupo Petrópolis", trigger: "Heat wave", text: "A 38°C+ weekend is forecast for Rio and São Paulo, and in past heat waves beer orders on iFood rose about 40%, mostly from 18:00 to 23:00. Push extra cans to the 120 convenience merchants that ran out last time, and move retail media spend on iFood to the evening." },
+        { brand: "Hypera Pharma", trigger: "Dengue surge", text: "Dengue cases have tripled in Goiás, and patients are told to avoid aspirin and ibuprofen, so demand will shift to dipyrone and paracetamol. Stock the top 300 pharmacies in that area and run overnight search ads on “febre” (fever) before generics take the extra demand." },
+        { brand: "M. Dias Branco", trigger: "Black Friday", text: "This year Black Friday falls in payday week, so iFood Mercado basket value should rise 25–30%, and a competitor has already booked ads for 24–28 November. Counter with a pasta + sauce bundle in the Northeast rather than a straight price cut." },
+        { brand: "Três Corações", trigger: "Coffee price rise", text: "Coffee prices are up 9% in a month, and shoppers with baskets under R$80 are switching from the 500g pack to supermarkets’ own brands. Protect the pack with an offer for members of the Clube iFood subscription, and win back the 18% of monthly coffee buyers who haven’t returned in 45 days." },
+      ],
+    },
+    {
       slug: "market-shares",
       title: "Market Shares",
       description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
