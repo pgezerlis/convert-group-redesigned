@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { NAV, POSITIONING, isGroup } from "@/lib/site";
+import { CONTACT, NAV, POSITIONING, isGroup } from "@/lib/site";
 import { Logo } from "./Logo";
 
 export function SiteFooter() {
@@ -13,6 +13,12 @@ export function SiteFooter() {
         <div className="lg:col-span-5">
           <Logo inverse />
           <p className="mt-6 max-w-[34ch] opacity-85">{POSITIONING}</p>
+          <address className="mt-6 not-italic text-sm leading-relaxed">
+            <a href={`mailto:${CONTACT.email}`} className="text-cyan hover:underline">
+              {CONTACT.email}
+            </a>
+            <span className="mt-1 block max-w-[34ch] opacity-85">{CONTACT.address}</span>
+          </address>
         </div>
         <div className="grid gap-10 sm:grid-cols-3 lg:col-span-7">
           {groups.map((g) => (
