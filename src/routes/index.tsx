@@ -206,8 +206,8 @@ function Home() {
         </div>
       </section>
 
-      <ClosingCTA />
       <SiteFAQ />
+      <ClosingCTA />
     </>
   );
 }
