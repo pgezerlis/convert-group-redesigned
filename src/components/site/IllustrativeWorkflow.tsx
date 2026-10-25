@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 /** Scripted, deterministic example — not a live AI feature. */
 export function IllustrativeWorkflow() {
   const [i, setI] = useState(0);
-  const ex = WORKFLOW_EXAMPLES[i];
+  const ex = WORKFLOW_EXAMPLES[i] ?? WORKFLOW_EXAMPLES[0];
   return (
     <div className="rounded-lg border border-border bg-background p-5 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
