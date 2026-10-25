@@ -44,7 +44,7 @@ export function MonetisableInsights() {
                       {body}
                     </div>
                     <div className="min-w-0 lg:col-span-7">
-                      <figure className="cg-shot border border-border bg-background shadow-sm">
+                      <figure className="cg-shot rounded-lg border border-border bg-background shadow-sm">
                         <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" className="block h-auto w-full" />
                       </figure>
                     </div>
