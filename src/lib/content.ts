@@ -1,9 +1,9 @@
 // Content objects. Everything here is proposed website copy or clearly illustrative
 // example data — no client results, logos or testimonials are invented.
-import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asset.json";
-import marketShares from "@/assets/insights/market-shares.png.asset.json";
-import salesGrowth from "@/assets/insights/sales-growth.png.asset.json";
-import siteNavigation from "@/assets/insights/site-navigation-saas-shot-transparent.png.asset.json";
+import bundleOpportunities from "@/assets/insights/bundle-opportunities-clean-transparent.png.asset.json";
+import marketShares from "@/assets/insights/brand-performance-clean-transparent.png.asset.json";
+import salesGrowth from "@/assets/insights/kpi-tree-clean-transparent.png.asset.json";
+import siteNavigation from "@/assets/insights/site-navigation-clean-transparent.png.asset.json";
 import retailMedia from "@/assets/insights/retail-media-strategy.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 import claudeMark from "@/assets/tools/claude.svg";
@@ -23,25 +23,25 @@ export const MONETISABLE_INSIGHTS = {
       slug: "market-shares",
       title: "Market Shares",
       description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
-      screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1920, height: 1152 },
+      screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1920, height: 1200 },
     },
     {
       slug: "sales-growth-insights",
       title: "Sales Growth Insights",
       description: "Every Brand needs to understand the “why” behind fluctuations in their sales figures. With our platform, brands gain instant, in-depth insights into their performance, breaking down sales data into granular components. Our intuitive, visual reports uncover the key drivers of sales changes—whether it’s promotions, seasonality, or market shifts—empowering brands to refine their strategies, optimise inventory, and seize new growth opportunities with confidence.",
-      screenshot: { src: salesGrowth.url, alt: "Sales Growth Insights: KPI tree breaking down sales growth drivers", width: 1920, height: 1296 },
+      screenshot: { src: salesGrowth.url, alt: "Sales Growth Insights: KPI tree breaking down sales growth drivers", width: 1920, height: 1152 },
     },
     {
       slug: "search-navigation",
       title: "Search & Navigation",
       description: "Share real-time insights into how customers discover, research, and purchase products across your platform. Track and analyse consumer behaviors—from search queries and navigation patterns to purchase pathways. This data empowers brands to refine their digital marketing strategies, personalise customer experiences, and optimise their retail media campaigns for higher engagement.",
-      screenshot: { src: siteNavigation.url, alt: "Search & Navigation: site search and navigation demand in the app", width: 1920, height: 1236 },
+      screenshot: { src: siteNavigation.url, alt: "Search & Navigation: site search and navigation demand in the app", width: 1920, height: 1104 },
     },
     {
       slug: "customer-insights",
       title: "Customer Insights",
       description: "Unlock powerful data on your audience—whether for your brand, competitors, or categories. Analyse segments like age, gender, income, lifestyle, and buying behavior to spot cross-sell opportunities, high-value bundles, and category affinities that drive sales. With this, brands can fine-tune targeting, personalise offers, and optimise product assortments for better conversions.",
-      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1320 },
+      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1104 },
     },
     {
       slug: "retail-media-strategy",
