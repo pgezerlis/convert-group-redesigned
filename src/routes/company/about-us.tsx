@@ -30,7 +30,6 @@ const TEAM = [
   { name: "Elena Chailazopoulou", role: "Partner, CPO, Deputy CEO", quote: "Our cutting-edge solutions empower brands and retailers to make smarter decisions, optimize performance, and stay ahead in the ever-evolving commerce landscape." },
   { name: "Jacob Levis", role: "CGO", quote: "We’re empowering Retailers and Suppliers to shape the future together—turning insights into impact and fueling data-driven growth that elevates the entire industry." },
   { name: "Yorgos Panzaris", role: "CTO", quote: "Constantly improving our tools and the way we work, pragmatists and explorers at once: to build smart, well-designed, delightful products; and grow as a team." },
-  { name: "Aris Stavrianos", role: "COO", quote: "In a data-driven world, our goal is not just to track trends but to anticipate them. Every decision we make is focused on empowering our partners with actionable insights to drive sustainable growth." },
 ];
 
 function Page() {
