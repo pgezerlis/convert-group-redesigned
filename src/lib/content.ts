@@ -1,6 +1,7 @@
 // Content objects. Everything here is proposed website copy or clearly illustrative
 // example data — no client results, logos or testimonials are invented.
 import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asset.json";
+import marketShares from "@/assets/insights/market-shares.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 
 /** Original homepage copy; only user-supplied application captures are shown. */
