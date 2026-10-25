@@ -15,7 +15,7 @@ export const Route = createFileRoute("/company/about-us")({
   component: Page,
 });
 
-const COUNTRIES = ["Czechia", "France", "Greece", "Italy", "Kenya", "Netherlands", "Poland", "Romania", "Serbia", "Slovakia", "Spain"];
+const COUNTRIES = ["Czechia", "France", "Germany", "Greece", "Italy", "Kenya", "Netherlands", "Poland", "Romania", "Serbia", "Slovakia", "Spain"];
 
 const FACTS = [
   { value: "35+", label: "Retailers" },
@@ -48,8 +48,8 @@ function Page() {
 
       <section className="section bg-surface">
         <div className="container-cg grid gap-10 lg:grid-cols-2">
-          <SectionIntro eyebrow="Where we work" title="We operate in 11 countries">
-            <p>Europe is our home base, but our projects know no borders. We have undertaken projects in 11 countries, aspiring to thrive in many more.</p>
+          <SectionIntro eyebrow="Where we work" title="We operate in 12 countries">
+            <p>Europe is our home base, but our projects know no borders. We have undertaken projects in 12 countries, aspiring to thrive in many more.</p>
           </SectionIntro>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-3 self-center sm:grid-cols-3">
             {COUNTRIES.map((c) => (
