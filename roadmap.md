@@ -20,4 +20,6 @@
 - [x] Approved customer marks in the trusted-by strip (Dr. Max, Atida, PLUS, Naivas, Skroutz)
 - [x] Replace the homepage figure with a Zenlytic-inspired animation and remove its illustrative-data caption
 - [x] Feature the Dr. Max partnership story in the homepage "Success in practice" section
+- [x] Add Home as the first item in the header and mobile menu; start the hero with its navy switch on
+- [x] Show the solutions proof strip only where more than one client has approved a mark (marketplaces and delivery apps now hidden)
 - [ ] Waiting on client: photography, success stories, team profiles, legal links, contact-form delivery service
