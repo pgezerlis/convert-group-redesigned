@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
+import { InsightIcon } from "@/components/site/InsightIcons";
 import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { Switch } from "@/components/ui/switch";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
@@ -110,7 +111,10 @@ function Home() {
             <ul className="border-t border-navy">
               {INSIGHTS.map((i) => (
                 <li key={i.who} className="grid gap-2 border-b border-border py-6 sm:grid-cols-[180px_1fr] sm:gap-6">
-                  <h3 className="text-[1.25rem] tracking-normal">{i.who}</h3>
+                  <h3 className="flex items-center gap-3 text-[1.25rem] tracking-normal">
+                    <InsightIcon who={i.who} className="h-7 w-7 shrink-0" />
+                    {i.who}
+                  </h3>
                   <p className="body-lg text-muted-foreground">{i.what}</p>
                 </li>
               ))}
