@@ -226,6 +226,15 @@
   & :is(h1, h2, h3, h4) {
     color: var(--cg-white);
   }
+  & :is(.eyebrow, .lede, .text-muted-foreground) {
+    color: var(--cg-pale-blue);
+  }
+  & .text-link {
+    color: var(--cg-cyan);
+    &:hover {
+      color: var(--cg-white);
+    }
+  }
   & :focus-visible {
     outline-color: var(--cg-white);
   }
