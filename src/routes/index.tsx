@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { RetailValueFigure } from "@/components/site/RetailValueFigure";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
-import { METHOD, SOLUTIONS } from "@/lib/content";
+import { CLIENTS, METHOD, SOLUTIONS } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
