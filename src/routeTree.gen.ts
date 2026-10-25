@@ -18,6 +18,7 @@ import { Route as CompanyCareersRouteImport } from './routes/company/careers'
 import { Route as CompanyNewsRouteImport } from './routes/company/news'
 import { Route as SolutionsAudienceRouteImport } from './routes/solutions/$audience'
 import { Route as CompanyNewsIndexRouteImport } from './routes/company/news.index'
+import { Route as CompanyNewsSlugRouteImport } from './routes/company/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,11 @@ const CompanyNewsIndexRoute = CompanyNewsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CompanyNewsRoute,
 } as any)
+const CompanyNewsSlugRoute = CompanyNewsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CompanyNewsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/company/careers': typeof CompanyCareersRoute
   '/company/news': typeof CompanyNewsRouteWithChildren
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/$slug': typeof CompanyNewsSlugRoute
   '/company/news/': typeof CompanyNewsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/company/about-us': typeof CompanyAboutUsRoute
   '/company/careers': typeof CompanyCareersRoute
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/$slug': typeof CompanyNewsSlugRoute
   '/company/news': typeof CompanyNewsIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/company/careers': typeof CompanyCareersRoute
   '/company/news': typeof CompanyNewsRouteWithChildren
   '/solutions/$audience': typeof SolutionsAudienceRoute
+  '/company/news/$slug': typeof CompanyNewsSlugRoute
   '/company/news/': typeof CompanyNewsIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/$slug'
     | '/company/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/company/about-us'
     | '/company/careers'
     | '/solutions/$audience'
+    | '/company/news/$slug'
     | '/company/news'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/news'
     | '/solutions/$audience'
+    | '/company/news/$slug'
     | '/company/news/'
   fileRoutesById: FileRoutesById
 }
@@ -209,14 +221,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyNewsIndexRouteImport
       parentRoute: typeof CompanyNewsRoute
     }
+    '/company/news/$slug': {
+      id: '/company/news/$slug'
+      path: '/$slug'
+      fullPath: '/company/news/$slug'
+      preLoaderRoute: typeof CompanyNewsSlugRouteImport
+      parentRoute: typeof CompanyNewsRoute
+    }
   }
 }
 
 interface CompanyNewsRouteChildren {
+  CompanyNewsSlugRoute: typeof CompanyNewsSlugRoute
   CompanyNewsIndexRoute: typeof CompanyNewsIndexRoute
 }
 
 const CompanyNewsRouteChildren: CompanyNewsRouteChildren = {
+  CompanyNewsSlugRoute: CompanyNewsSlugRoute,
   CompanyNewsIndexRoute: CompanyNewsIndexRoute,
 }
 
