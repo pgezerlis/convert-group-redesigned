@@ -62,13 +62,8 @@ function Home() {
           <div className="flex flex-1 flex-col gap-3">
             <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {CLIENTS.map((c) => (
-                <li key={c.slug} className="flex w-[calc(50%-0.375rem)] flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-auto lg:flex-1">
+                <li key={c.slug} className="flex min-h-20 w-[calc(50%-0.375rem)] items-center justify-center rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center sm:w-[calc(33.333%-0.667rem)] lg:w-[calc(20%-0.8rem)]">
                   <ClientLogo client={c} />
-                  <span className="flex flex-wrap justify-center gap-0.5">
-                    {c.countries.map((k) => (
-                      <img key={k.code} src={`https://flagcdn.com/w40/${k.code}.png`} alt={k.name} title={k.name} width={18} height={13} loading="lazy" className="h-[13px] w-[18px] rounded-[2px] border border-border object-cover" />
-                    ))}
-                  </span>
                 </li>
               ))}
             </ul>
