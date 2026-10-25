@@ -112,7 +112,6 @@ export function PresenceMap() {
       role="img"
       aria-label={`Map of the ${present.length} countries where Convert Group operates: ${present.map((c) => c.name).join(", ")}.`}
       className="h-auto w-full"
-      aria-hidden={undefined}
     >
       <g fill="var(--cg-pale-blue)" opacity="0.16" stroke="var(--cg-navy)" strokeWidth="0.4">
         {base.map((c) => (
