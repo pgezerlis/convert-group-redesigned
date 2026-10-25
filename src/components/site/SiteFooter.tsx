@@ -8,7 +8,7 @@ export function SiteFooter() {
     ...NAV.filter(isGroup),
   ];
   return (
-    <footer className="on-dark border-t border-white/15">
+    <footer className="on-dark border-t border-primary-foreground/15">
       <div className="container-cg grid gap-12 py-16 lg:grid-cols-12 lg:py-20">
         <div className="lg:col-span-5">
           <Logo inverse />
@@ -32,7 +32,7 @@ export function SiteFooter() {
           ))}
         </div>
       </div>
-      <div className="container-cg flex flex-col gap-2 border-t border-white/15 py-6 text-sm opacity-80 md:flex-row md:justify-between">
+      <div className="container-cg flex flex-col gap-2 border-t border-primary-foreground/15 py-6 text-sm opacity-80 md:flex-row md:justify-between">
         <p>© {new Date().getFullYear()} Convert Group</p>
         <p className="data-label">Preview · privacy, cookie, terms links and social profiles pending approval</p>
       </div>
