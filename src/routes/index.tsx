@@ -4,6 +4,7 @@ import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
 import { InsightIcon } from "@/components/site/InsightIcons";
+import { WorksWhatYouHave } from "@/components/site/WorksWhatYouHave";
 import { SiteFAQ } from "@/components/site/SiteFAQ";
 import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { Switch } from "@/components/ui/switch";
@@ -179,7 +180,10 @@ function Home() {
         </div>
       </section>
 
-      {/* 6 · Featured story */}
+      {/* 6 · Works with what you have */}
+      <WorksWhatYouHave />
+
+      {/* 7 · Featured story */}
       <section className="section bg-pale">
         <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-6">
