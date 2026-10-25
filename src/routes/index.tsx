@@ -49,7 +49,7 @@ function Home() {
               <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:flex lg:items-center lg:justify-end">
+          <div className="min-w-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
             <DataValueAnimation />
           </div>
         </div>

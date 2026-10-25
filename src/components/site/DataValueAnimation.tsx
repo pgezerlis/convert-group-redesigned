@@ -111,8 +111,12 @@ export function DataValueAnimation() {
           particles.setMatrixAt(i, dummy.matrix);
         }
         particles.instanceMatrix.needsUpdate = true;
-        group.rotation.y = elapsed * 0.12 * (1 - eased) + 0.25 * eased + pointer.x;
-        group.rotation.x += ((-0.08 + pointer.y) - group.rotation.x) * 0.04;
+        if (motion.matches) {
+          group.rotation.set(-0.08, 0.25, 0);
+        } else if (!paused.current) {
+          group.rotation.y = elapsed * 0.12 * (1 - eased) + 0.25 * eased + pointer.x;
+          group.rotation.x += ((-0.08 + pointer.y) - group.rotation.x) * 0.04;
+        }
         renderer.render(scene, camera);
       };
       draw(performance.now());
