@@ -37,3 +37,15 @@ export const CONTACT = {
   email: "info@convertgroup.com",
   address: "85 Great Portland St, London W1W 7LT, United Kingdom",
 };
+
+export const LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "https://convertgroup.com/privacy-policy/" },
+  { label: "Cookie Policy", href: "https://convertgroup.com/cookie-policy/" },
+];
+
+export const SOCIAL_LINKS = [
+  { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/company/convert-group/" },
+  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/convert.group/" },
+  { label: "Twitter", icon: "twitter", href: "https://twitter.com/convertgroup?lang=en" },
+  { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/channel/UChNtO5-zSi9Tvy21fLjrtvg" },
+] as const;
