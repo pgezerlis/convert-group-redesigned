@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClosingCTA, PageHero, SectionIntro } from "@/components/site/ui";
-import { DELIVERY_TERMS, METHOD } from "@/lib/content";
+import { COMMERCIAL_APPROACH, DELIVERY_TERMS, METHOD } from "@/lib/content";
 
 export const Route = createFileRoute("/how-we-do-it")({
   head: () => ({
     meta: [
       { title: "How we do it — Convert Group" },
-      { name: "description", content: "Five services for insourcing data monetisation: strategy, data readiness and maintenance, technology, customer success and selling support." },
+      { name: "description", content: "Build an in-house data monetisation programme: supplier insight packages, pricing, commercial launch, adoption and shared decision-making, supported by Convert Group's five services." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "How we do it — Convert Group" },
-      { property: "og:description", content: "Bring data monetisation in-house with five services, one-year contracts and agreed permission to copy the platform for internal use." },
+      { property: "og:description", content: "From supplier proposition to shared business decisions: develop packages, pricing, sales and renewal plans your team can run, with Convert Group's five supporting services." },
     ],
   }),
   component: Page,
@@ -25,13 +25,13 @@ function Page() {
   return (
     <>
       <PageHero eyebrow="How we do it · Insourcing" title="Data monetisation. Run by your team.">
-        Strategy, data readiness and maintenance, technology, customer success and selling support. Choose the support you need to bring data monetisation into your business, without making permanent vendor dependence the goal.
+        Build a supplier insight programme your people can run — with a defined offer, clear pricing, a focused sales plan and support that helps partners put data to work. We develop the commercial approach with your team, then provide the services you need to deliver it in-house.
       </PageHero>
 
       <section className="section">
         <div className="container-cg">
           <ol className="border-t border-navy">
-            {METHOD.map((m) => (
+            {COMMERCIAL_APPROACH.map((m) => (
               <li key={m.n} className="grid gap-4 border-b border-border py-10 lg:grid-cols-12 lg:gap-8">
                 <span className="data-label text-lg font-medium text-navy lg:col-span-1">{m.n}</span>
                 <div className="lg:col-span-5">
@@ -46,7 +46,7 @@ function Page() {
               </li>
             ))}
           </ol>
-          <p className="data-label mt-6 text-muted-foreground">Our five current services; scope and responsibilities are agreed with each client.</p>
+          <p className="data-label mt-6 text-muted-foreground">Five commercial workstreams, tailored to your starting point. Packages, prices, development priorities and responsibilities are agreed with your team.</p>
         </div>
       </section>
 
@@ -54,7 +54,7 @@ function Page() {
         <div className="container-cg grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <SectionIntro eyebrow="Operating model" title="Who does what.">
-              <p>Convert provides structure and experience. Ownership sits with your people from the first workshop.</p>
+              <p>Our five current services support this commercial approach: strategy and consulting, data readiness and maintenance, technology, customer success and selling support. Choose the support you need; ownership sits with your people from the first workshop.</p>
             </SectionIntro>
           </div>
           <figure className="lg:col-span-7" aria-label="Operating model: what Convert brings and what your team owns">

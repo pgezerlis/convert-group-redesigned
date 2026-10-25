@@ -11,6 +11,7 @@
 
 - Site nav/CTA config lives in src/lib/site.ts and page copy/example data in src/lib/content.ts; why: one source of truth for labels, destinations and illustrative content.
 - Service definitions, availability states and commercial terms are shared records in src/lib/content.ts; why: homepage, approach page and FAQ must distinguish current offers from future product directions consistently.
+- The approach page uses COMMERCIAL_APPROACH workstreams separately from the METHOD service catalogue, both in src/lib/content.ts; why: commercial programme design must not redefine the board-approved current services.
 - Homepage FAQ uses the shared FAQS content record and the existing accessible accordion, placed after the Dr. Max featured story and before the closing CTA; why: answers reuse established site copy and the section reads as the story's follow-up rather than a page-end block.
 - The presence map (src/components/site/PresenceMap.tsx) is generated from Natural Earth via world-atlas + d3-geo and only colours countries through --cg-* tokens; the 12-country list lives in COUNTRIES in src/lib/content.ts; why: geographic truth is data-driven, never hand-drawn, and the brand palette stays single-source.
 - News articles use a shared content record and individual child routes under /company/news; why: full original articles remain readable and directly linkable on this site rather than depending on the old site.
