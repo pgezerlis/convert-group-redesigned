@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
-import { DataValueAnimation } from "@/components/site/DataValueAnimation";
+import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { CLIENTS, METHOD, SOLUTIONS } from "@/lib/content";
@@ -50,7 +50,13 @@ function Home() {
             </div>
           </div>
           <div className="min-w-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
-            <DataValueAnimation />
+            {/* Brand tokens: ink = --cg-navy, accent = --cg-link, glow = --cg-cyan */}
+            <DataMonetisationHero
+              className="h-[380px] w-full sm:h-[460px] lg:h-[540px]"
+              ink="#1e3257"
+              accent="#006b93"
+              glow="#00b7fa"
+            />
           </div>
         </div>
       </section>
