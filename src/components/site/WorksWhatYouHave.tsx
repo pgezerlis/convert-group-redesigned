@@ -8,8 +8,8 @@ export function WorksWhatYouHave() {
       <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <SectionIntro eyebrow={MCP_SECTION.eyebrow} title={MCP_SECTION.title}>
-            {MCP_SECTION.body.map((p) => (
-              <p key={p.slice(0, 24)}>{p}</p>
+            {MCP_SECTION.body.map((p, i) => (
+              <p key={p.slice(0, 24)} className={i > 0 ? "mt-4" : undefined}>{p}</p>
             ))}
           </SectionIntro>
         </div>
