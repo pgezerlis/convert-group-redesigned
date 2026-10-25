@@ -84,7 +84,7 @@ function dataFormation(n: number, r: () => number): P3[] {
       c[(axis + 1) % 3] = u;
       c[(axis + 2) % 3] = v;
     }
-    pts.push({ x: c[0] * S, y: c[1] * S, z: c[2] * S, a: r() < 0.05 ? 1 : 0, g: 0 });
+    pts.push({ x: (c[0] ?? 0) * S, y: (c[1] ?? 0) * S, z: (c[2] ?? 0) * S, a: r() < 0.05 ? 1 : 0, g: 0 });
   }
   return pts;
 }
@@ -237,19 +237,21 @@ export default function DataMonetisationHero({
       const idx = Math.floor(ph / CYCLE) % 3, nxt = (idx + 1) % 3;
       const local = ph - idx * CYCLE;
       const T = local < holdMs ? 0 : (local - holdMs) / morphMs;
-      const from = forms[idx], to = forms[nxt];
+      const from = forms[idx] ?? [], to = forms[nxt] ?? [];
       const showIdx = T > 0.5 ? nxt : idx;
       if (showIdx !== lastActive) { lastActive = showIdx; setActive(showIdx); }
 
       // how settled each formation is (drives the overlays)
       const settled = [0, 0, 0];
       settled[idx] = T === 0 ? 1 : clamp01(1 - T * 3);
-      settled[nxt] = Math.max(settled[nxt], clamp01((T - 0.75) * 4));
+      settled[nxt] = Math.max(settled[nxt] ?? 0, clamp01((T - 0.75) * 4));
+      const s1 = settled[1] ?? 0, s2 = settled[2] ?? 0;
       const holdT = T === 0 ? local / holdMs : 0; // 0..1 progress through the hold
 
       px += (tx - px) * 0.04; py += (ty - py) * 0.04;
       const camE = easeInOut(T);
-      const yaw = YAW[idx] + (YAW[nxt] - YAW[idx]) * camE + Math.sin(now / 5200) * 0.28 + px * 0.25;
+      const yawA = YAW[idx] ?? 0, yawB = YAW[nxt] ?? 0;
+      const yaw = yawA + (yawB - yawA) * camE + Math.sin(now / 5200) * 0.28 + px * 0.25;
       const pitch = 0.3 + Math.sin(now / 7300) * 0.06 + py * 0.15;
       const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
       const scale = Math.min(W, H) * 0.4 * dpr;
@@ -271,6 +273,7 @@ export default function DataMonetisationHero({
 
       for (let i = 0; i < N; i++) {
         const a = from[i], b = to[i], j = jitter[i];
+        if (!a || !b || !j) continue;
         const e = easeInOut(clamp01((T - j.d * 0.35) / 0.65));
         const sw = Math.sin(Math.PI * e) * (0.22 + j.d * 0.2);
         const x = a.x + (b.x - a.x) * e + j.sx * sw;
@@ -289,7 +292,7 @@ export default function DataMonetisationHero({
         const B = INK[2] * ink_ + ACC[2] * acc + GLW[2] * glw;
         ctx.strokeStyle = `rgba(${R | 0},${G | 0},${B | 0},${alpha})`;
         ctx.lineWidth = (0.9 + depth * 0.9 + (acc + glw) * 0.4) * dpr;
-        const qx = hasPrev ? prev[i * 2] : p.sx - 0.6 * dpr, qy = hasPrev ? prev[i * 2 + 1] : p.sy;
+        const qx = hasPrev ? (prev[i * 2] ?? 0) : p.sx - 0.6 * dpr, qy = hasPrev ? (prev[i * 2 + 1] ?? 0) : p.sy;
         const dx = p.sx - qx, dy = p.sy - qy;
         ctx.beginPath();
         if (dx * dx + dy * dy < 0.36 * dpr * dpr) { ctx.moveTo(p.sx - 0.7 * dpr, p.sy); ctx.lineTo(p.sx + 0.7 * dpr, p.sy); }
@@ -362,7 +365,7 @@ export default function DataMonetisationHero({
 
     const ro = new ResizeObserver(() => { resize(); if (reduce) draw(0, true); });
     ro.observe(wrap);
-    const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; visible ? start() : stop(); });
+    const io = new IntersectionObserver(([en]) => { visible = en?.isIntersecting ?? false; visible ? start() : stop(); });
     io.observe(wrap);
     const onVis = () => (document.hidden ? stop() : start());
     document.addEventListener("visibilitychange", onVis);
