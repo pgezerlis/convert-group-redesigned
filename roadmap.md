@@ -1,4 +1,6 @@
 # Roadmap
+- [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
+- [ ] Waiting on Pan: app screenshots for Market Shares, Sales Growth Insights, Search & Navigation and Retail Media Strategy
 - [x] Copy the five approved news articles in full and make them readable on the new site
 - [x] Convert Group redesign per convertgroup-design.md (homepage + all interior routes)
 - [x] Use uploaded logo file unaltered in header + favicon

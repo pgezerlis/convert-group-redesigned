@@ -1,5 +1,44 @@
 // Content objects. Everything here is proposed website copy or clearly illustrative
 // example data — no client results, logos or testimonials are invented.
+import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asset.json";
+
+/** Original homepage copy; only user-supplied application captures are shown. */
+export const MONETISABLE_INSIGHTS = {
+  title: "Data & Insights Retailers can Monetise",
+  intro: "Leverage data to fuel smarter, more effective strategies. With Convert Group, you can offer brands comprehensive insights across key areas of the customer journey, enabling them to optimise campaigns, increase ROI, and drive growth.",
+  areas: [
+    {
+      slug: "market-shares",
+      title: "Market Shares",
+      description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
+      screenshot: null,
+    },
+    {
+      slug: "sales-growth-insights",
+      title: "Sales Growth Insights",
+      description: "Every Brand needs to understand the “why” behind fluctuations in their sales figures. With our platform, brands gain instant, in-depth insights into their performance, breaking down sales data into granular components. Our intuitive, visual reports uncover the key drivers of sales changes—whether it’s promotions, seasonality, or market shifts—empowering brands to refine their strategies, optimise inventory, and seize new growth opportunities with confidence.",
+      screenshot: null,
+    },
+    {
+      slug: "search-navigation",
+      title: "Search & Navigation",
+      description: "Share real-time insights into how customers discover, research, and purchase products across your platform. Track and analyse consumer behaviors—from search queries and navigation patterns to purchase pathways. This data empowers brands to refine their digital marketing strategies, personalise customer experiences, and optimise their retail media campaigns for higher engagement.",
+      screenshot: null,
+    },
+    {
+      slug: "customer-insights",
+      title: "Customer Insights",
+      description: "Unlock powerful data on your audience—whether for your brand, competitors, or categories. Analyse segments like age, gender, income, lifestyle, and buying behavior to spot cross-sell opportunities, high-value bundles, and category affinities that drive sales. With this, brands can fine-tune targeting, personalise offers, and optimise product assortments for better conversions.",
+      screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1180 },
+    },
+    {
+      slug: "retail-media-strategy",
+      title: "Retail Media Strategy",
+      description: "Measure the effectiveness of retail media campaigns with real-time, data-backed insights that show clear results. We provide detailed attribution level metrics, ROAS, incremental ROAS, ROI and campaign post impact, ensuring brands have full transparency. By offering detailed and incremental measurement, brands can fine-tune their media strategies, build trust with suppliers, and drive increased media budgets over time.",
+      screenshot: null,
+    },
+  ],
+};
 
 export const METHOD = [
   {
