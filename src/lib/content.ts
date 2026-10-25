@@ -209,3 +209,15 @@ export const WORKFLOW_EXAMPLES = [
     option: "Partner insight brief — beverage and snack brands, monthly, owned by your partnerships team.",
   },
 ] as const;
+
+/** Approved clients (confirmed by Pan) with countries of operation (ISO 3166-1 alpha-2). */
+export const CLIENTS: { name: string; countries: { code: string; name: string }[] }[] = [
+  { name: "Dr. Max", countries: [
+    { code: "cz", name: "Czechia" }, { code: "ro", name: "Romania" }, { code: "it", name: "Italy" },
+    { code: "sk", name: "Slovakia" }, { code: "rs", name: "Serbia" }, { code: "pl", name: "Poland" } ] },
+  { name: "Atida", countries: [ { code: "it", name: "Italy" }, { code: "fr", name: "France" }, { code: "es", name: "Spain" } ] },
+  { name: "PLUS", countries: [ { code: "nl", name: "Netherlands" } ] },
+  { name: "Naivas", countries: [ { code: "ke", name: "Kenya" } ] },
+  { name: "Skroutz", countries: [ { code: "gr", name: "Greece" } ] },
+  { name: "efood", countries: [ { code: "gr", name: "Greece" } ] },
+];
