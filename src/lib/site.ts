@@ -16,7 +16,6 @@ export const NAV: NavItem[] = [
       { label: "Delivery Apps", to: "/solutions/delivery-apps" },
     ],
   },
-  { label: "Success Stories", to: "/success-stories" },
   {
     label: "Company",
     children: [
