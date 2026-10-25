@@ -138,6 +138,50 @@ export const METHOD = [
   },
 ] as const;
 
+/** Commercial workstreams for the approach page, separate from the current service catalogue. */
+export const COMMERCIAL_APPROACH = [
+  {
+    n: "01",
+    title: "Shape the supplier proposition",
+    detail: "Bring together the data, insights and decision support suppliers need, from everyday performance tracking to category reviews. We work with your commercial and category teams to define what each package includes and how the offer can develop as your capability grows.",
+    question: "Which supplier decisions should each insight package support?",
+    output: "Package tiers, defined scope and a phased development plan",
+    owner: "Your commercial, category and data teams",
+  },
+  {
+    n: "02",
+    title: "Build a clear pricing structure",
+    detail: "Make the first purchase straightforward and give suppliers a clear path to broader insight and support. Together we connect pricing to package scope and service requirements, so your team can explain the value and manage the commercial model internally.",
+    question: "How should suppliers start, and what changes when they expand?",
+    output: "A proposed rate card, pricing rationale and expansion options",
+    owner: "Your commercial and finance teams retain pricing decisions",
+  },
+  {
+    n: "03",
+    title: "Focus the commercial launch",
+    detail: "Group suppliers by their needs and identify where to start. We help your team build a relevant case for each person involved in the purchase, connecting the insight to the decisions they are responsible for rather than selling the same package to everyone.",
+    question: "Which suppliers should we approach first, and why would each stakeholder buy?",
+    output: "Supplier segments, priority prospects and a go-to-market plan",
+    owner: "Your sales and partnership teams own the relationships",
+  },
+  {
+    n: "04",
+    title: "Support adoption and retention",
+    detail: "Plan how suppliers will get started, use the insight and review its value over time. We help define onboarding, ongoing support and renewal conversations, while your partner-facing team builds the skills to run the programme itself.",
+    question: "What support will help suppliers put insight to work and assess renewal?",
+    output: "An onboarding and service model, with a renewal plan",
+    owner: "Your partner-facing team, supported by Convert Group",
+  },
+  {
+    n: "05",
+    title: "Embed insight in shared decisions",
+    detail: "Take insight beyond reporting and into the work retailers and suppliers do together. Identify where it can inform promotion planning, category reviews and joint business plans, then establish practical ways for your teams to use it in those conversations.",
+    question: "Where can shared data improve the decisions we make with suppliers?",
+    output: "A decision-use playbook covering use cases, responsibilities and review routines",
+    owner: "Your category, commercial and supplier-facing teams",
+  },
+] as const;
+
 export type Audience = "retailers" | "marketplaces" | "delivery-apps";
 
 export type SolutionContent = {
