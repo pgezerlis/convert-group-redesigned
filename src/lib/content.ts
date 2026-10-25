@@ -1,6 +1,7 @@
 // Content objects. Everything here is proposed website copy or clearly illustrative
 // example data — no client results, logos or testimonials are invented.
 import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asset.json";
+import marketShares from "@/assets/insights/market-shares.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 
 /** Original homepage copy; only user-supplied application captures are shown. */
@@ -12,7 +13,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "market-shares",
       title: "Market Shares",
       description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
-      screenshot: null,
+      screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1920, height: 1152 },
     },
     {
       slug: "sales-growth-insights",
