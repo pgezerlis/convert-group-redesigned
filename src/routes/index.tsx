@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import { RetailValueFigure } from "@/components/site/RetailValueFigure";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
@@ -56,18 +57,25 @@ function Home() {
       <section aria-labelledby="proof-h" className="border-y border-border">
         <div className="container-cg flex flex-col gap-6 py-10 lg:flex-row lg:items-center lg:gap-12">
           <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams</h2>
-          <ul className="grid flex-1 grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {CLIENTS.map((c) => (
-              <li key={c.name} className="flex flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center">
-                <span className="text-lg font-bold tracking-tight text-primary">{c.name}</span>
-                <span className="flex flex-wrap justify-center gap-1">
-                  {c.countries.map((k) => (
-                    <img key={k.code} src={`https://flagcdn.com/w40/${k.code}.png`} alt={k.name} title={k.name} width={20} height={14} loading="lazy" className="h-3.5 w-5 rounded-[2px] border border-border object-cover" />
-                  ))}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-1 flex-col gap-3">
+            <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+              {CLIENTS.map((c) => (
+                <li key={c.slug} className="flex flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center">
+                  <ClientLogo client={c} />
+                  <span className="flex flex-wrap justify-center gap-1">
+                    {c.countries.map((k) => (
+                      <img key={k.code} src={`https://flagcdn.com/w40/${k.code}.png`} alt={k.name} title={k.name} width={20} height={14} loading="lazy" className="h-3.5 w-5 rounded-[2px] border border-border object-cover" />
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {CLIENTS.some((c) => !hasClientMark(c.slug)) && (
+              <p className="data-label text-muted-foreground">
+                Names stand in for each client’s official mark until the files are supplied.
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
