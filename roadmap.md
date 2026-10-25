@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Adapt How we do it around the five supplied commercial themes with original copy, preserving board-approved services and terms
+- [x] Adapt How we do it around the five supplied commercial themes with original copy, preserving board-approved services and terms
 - [x] Align public positioning with board decisions: current services, insourcing and terms; distinguish AI/MCP roadmap from live capabilities
 - [x] Add a stylised presence map with the 12 countries to the closing CTA section on the homepage
 - [x] Add a Hex-inspired FAQ reusing existing site copy, placed after the Dr. Max featured story and before the closing CTA
