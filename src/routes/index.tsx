@@ -37,7 +37,7 @@ function Home() {
         <div className="container-cg grid gap-12 pb-12 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-20 lg:pt-16">
           <div className="lg:col-span-6 lg:pt-6">
             <p className="eyebrow mb-6">Data monetisation. Built into your business.</p>
-            <h1 className="max-w-[13ch]">Make data monetisation a core capability.</h1>
+            <h1 className="max-w-[13ch]">Make data monetisation a core internal capability.</h1>
             <p className="lede mt-6 max-w-[48ch]">
               We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.
             </p>
