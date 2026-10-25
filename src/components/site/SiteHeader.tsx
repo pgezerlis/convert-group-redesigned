@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
-import { NAV, isGroup, type NavGroup } from "@/lib/site";
+import { NAV, PRIMARY_CTA, isGroup, type NavGroup } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { btn } from "./ui";
@@ -104,13 +104,13 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <Link to="/contact" className={cn(btn.primary, "ml-8 min-h-11 px-5")}>
-            Talk to us
+          <Link to={PRIMARY_CTA.to} className={cn(btn.primary, "ml-8 min-h-11 px-5")}>
+            {PRIMARY_CTA.label}
           </Link>
         </nav>
         <div className="flex items-center gap-2 lg:hidden">
-          <Link to="/contact" className={cn(btn.primary, "min-h-11 px-3.5 text-[0.9375rem] min-[360px]:px-4")}>
-            Talk to us
+          <Link to={PRIMARY_CTA.to} className={cn(btn.primary, "min-h-11 px-3.5 text-[0.9375rem] min-[360px]:px-4")}>
+            {PRIMARY_CTA.label}
           </Link>
           <button
             ref={menuBtn}
