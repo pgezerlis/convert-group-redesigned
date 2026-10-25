@@ -1,24 +1,197 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { RetailValueFigure } from "@/components/site/RetailValueFigure";
+import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
+import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
+import { METHOD, SOLUTIONS } from "@/lib/content";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Convert Group — Make data monetisation a core capability" },
+      {
+        name: "description",
+        content:
+          "Convert helps retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and technology to build that capability in-house.",
+      },
+      { property: "og:title", content: "Convert Group — Make data monetisation a core capability" },
+      {
+        property: "og:description",
+        content: "Commercial framework, know-how and, where needed, technology to make data monetisation a core internal capability.",
+      },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const INSIGHTS = [
+  { who: "Supplier brands", what: "Category trends and shopper behaviour in the categories they sell." },
+  { who: "Marketplace sellers", what: "Aggregated search demand and assortment gaps in their categories." },
+  { who: "Delivery partners", what: "Local demand by area and time, and purchase-mission patterns." },
+];
+
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      {/* 1 · Hero */}
+      <section>
+        <div className="container-cg grid gap-12 pb-12 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-20 lg:pt-16">
+          <div className="lg:col-span-6 lg:pt-6">
+            <p className="eyebrow mb-6">Data monetisation. Built into your business.</p>
+            <h1 className="max-w-[13ch]">Make data monetisation a core capability.</h1>
+            <p className="lede mt-6 max-w-[48ch]">
+              We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <TalkToUs />
+              <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
+            </div>
+          </div>
+          <div className="lg:col-span-6 lg:flex lg:justify-end">
+            <RetailValueFigure />
+          </div>
+        </div>
+      </section>
+
+      {/* 2 · Credibility strip */}
+      <section aria-labelledby="proof-h" className="border-y border-border">
+        <div className="container-cg flex flex-col gap-6 py-10 lg:flex-row lg:items-center lg:gap-12">
+          <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams</h2>
+          <ul className="grid flex-1 grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <li key={n}>
+                <Pending label={`Client logo ${n}`} ratio="h-16" className="p-2" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 3 · Opportunity */}
+      <section className="section">
+        <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <SectionIntro eyebrow="The commercial opportunity" title="Your data is already valuable to your partners.">
+              <p>
+                Suppliers, sellers and brand partners make better decisions with what you see every day. Most organisations share fragments of it informally. A defined offer, buyer and price turns that into a revenue line your team runs.
+              </p>
+            </SectionIntro>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <p className="data-label mb-3 text-muted-foreground">Examples of monetisable insight</p>
+            <ul className="border-t border-navy">
+              {INSIGHTS.map((i) => (
+                <li key={i.who} className="grid gap-2 border-b border-border py-6 sm:grid-cols-[180px_1fr] sm:gap-6">
+                  <h3 className="text-[1.25rem] tracking-normal">{i.who}</h3>
+                  <p className="body-lg text-muted-foreground">{i.what}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 4 · How we do it */}
+      <section className="section bg-surface">
+        <div className="container-cg">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <SectionIntro eyebrow="How we do it" title="From first opportunity to a capability you own." />
+            <ArrowLink to="/how-we-do-it" className="shrink-0">Our approach in detail</ArrowLink>
+          </div>
+          <ol className="mt-12 border-t border-navy">
+            {METHOD.map((m) => (
+              <li key={m.n} className="grid gap-3 border-b border-border py-8 lg:grid-cols-12 lg:gap-8">
+                <span className="data-label text-lg font-medium text-navy lg:col-span-1">{m.n}</span>
+                <h3 className="lg:col-span-4">{m.title}</h3>
+                <p className="body-lg text-muted-foreground lg:col-span-4">{m.detail}</p>
+                <dl className="text-sm lg:col-span-3">
+                  <dt className="data-label text-muted-foreground">Output</dt>
+                  <dd className="font-medium text-ink">{m.output}</dd>
+                  <dt className="data-label mt-3 text-muted-foreground">Owned by</dt>
+                  <dd className="text-ink">{m.owner}</dd>
+                </dl>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 5 · Solutions */}
+      <section className="section">
+        <div className="container-cg">
+          <SectionIntro eyebrow="Solutions" title="Built around how your business works." />
+          <ul className="mt-12 border-t border-navy">
+            {SOLUTIONS.map((s) => (
+              <li key={s.slug} className="grid gap-4 border-b border-border py-10 lg:grid-cols-12 lg:gap-8">
+                <h3 className="lg:col-span-3">{s.label}</h3>
+                <p className="body-lg lg:col-span-5">{s.need}</p>
+                <div className="lg:col-span-4">
+                  <ul className="space-y-1.5 text-muted-foreground">
+                    {s.deliverables.map((d) => (
+                      <li key={d} className="flex gap-2">
+                        <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-navy" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                  <ArrowLink to="/solutions/$audience" params={{ audience: s.slug }} className="mt-4">
+                    Explore {s.label.toLowerCase()}
+                  </ArrowLink>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 6 · Featured story */}
+      <section className="section bg-pale">
+        <div className="container-cg grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-6">
+            <Pending label="Approved customer photograph or logo" />
+          </div>
+          <div className="lg:col-span-6 lg:pl-8">
+            <p className="eyebrow mb-4">Success in practice</p>
+            <h2>A featured customer story will appear here.</h2>
+            <p className="body-lg mt-5 text-muted-foreground">
+              Placeholder in this preview. We’ll publish one approved story with its customer, context, Convert’s role and measured results — each with period, baseline and source.
+            </p>
+            <ArrowLink to="/success-stories" className="mt-8">All success stories</ArrowLink>
+          </div>
+        </div>
+      </section>
+
+      {/* 7 · Capability stays */}
+      <section className="section">
+        <div className="container-cg grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <Pending label="Real photograph: Convert and client team working session" ratio="aspect-[4/5]" />
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <SectionIntro eyebrow="Capability that stays" title="Your team owns it. We make sure they can.">
+              <p>
+                We bring the commercial framework and the know-how from doing this before. Your people lead the offers, the relationships and the decisions. Where your current stack is enough, we use it; where it isn’t, Convert technology fills the gap.
+              </p>
+            </SectionIntro>
+            <dl className="mt-10 grid gap-6 border-t border-navy pt-6 sm:grid-cols-3">
+              {[
+                ["Framework", "Offers, pricing and governance"],
+                ["Know-how", "Playbooks and practical coaching"],
+                ["Technology", "Only where it’s needed"],
+              ].map(([k, v]) => (
+                <div key={k}>
+                  <dt className="font-semibold text-navy">{k}</dt>
+                  <dd className="mt-1 text-sm text-muted-foreground">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="mt-12">
+              <IllustrativeWorkflow />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ClosingCTA />
+    </>
   );
 }

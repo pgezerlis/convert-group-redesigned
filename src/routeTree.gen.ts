@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HowWeDoItRouteImport } from './routes/how-we-do-it'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as CompanyAboutUsRouteImport } from './routes/company/about-us'
+import { Route as CompanyCareersRouteImport } from './routes/company/careers'
+import { Route as CompanyNewsRouteImport } from './routes/company/news'
+import { Route as SolutionsAudienceRouteImport } from './routes/solutions/$audience'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowWeDoItRoute = HowWeDoItRouteImport.update({
+  id: '/how-we-do-it',
+  path: '/how-we-do-it',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyAboutUsRoute = CompanyAboutUsRouteImport.update({
+  id: '/company/about-us',
+  path: '/company/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyCareersRoute = CompanyCareersRouteImport.update({
+  id: '/company/careers',
+  path: '/company/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyNewsRoute = CompanyNewsRouteImport.update({
+  id: '/company/news',
+  path: '/company/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsAudienceRoute = SolutionsAudienceRouteImport.update({
+  id: '/solutions/$audience',
+  path: '/solutions/$audience',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/how-we-do-it': typeof HowWeDoItRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/company/about-us': typeof CompanyAboutUsRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/news': typeof CompanyNewsRoute
+  '/solutions/$audience': typeof SolutionsAudienceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/how-we-do-it': typeof HowWeDoItRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/company/about-us': typeof CompanyAboutUsRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/news': typeof CompanyNewsRoute
+  '/solutions/$audience': typeof SolutionsAudienceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/how-we-do-it': typeof HowWeDoItRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/company/about-us': typeof CompanyAboutUsRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/news': typeof CompanyNewsRoute
+  '/solutions/$audience': typeof SolutionsAudienceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/how-we-do-it'
+    | '/success-stories'
+    | '/company/about-us'
+    | '/company/careers'
+    | '/company/news'
+    | '/solutions/$audience'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/how-we-do-it'
+    | '/success-stories'
+    | '/company/about-us'
+    | '/company/careers'
+    | '/company/news'
+    | '/solutions/$audience'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/how-we-do-it'
+    | '/success-stories'
+    | '/company/about-us'
+    | '/company/careers'
+    | '/company/news'
+    | '/solutions/$audience'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  HowWeDoItRoute: typeof HowWeDoItRoute
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
+  CompanyAboutUsRoute: typeof CompanyAboutUsRoute
+  CompanyCareersRoute: typeof CompanyCareersRoute
+  CompanyNewsRoute: typeof CompanyNewsRoute
+  SolutionsAudienceRoute: typeof SolutionsAudienceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-we-do-it': {
+      id: '/how-we-do-it'
+      path: '/how-we-do-it'
+      fullPath: '/how-we-do-it'
+      preLoaderRoute: typeof HowWeDoItRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company/about-us': {
+      id: '/company/about-us'
+      path: '/company/about-us'
+      fullPath: '/company/about-us'
+      preLoaderRoute: typeof CompanyAboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company/careers': {
+      id: '/company/careers'
+      path: '/company/careers'
+      fullPath: '/company/careers'
+      preLoaderRoute: typeof CompanyCareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company/news': {
+      id: '/company/news'
+      path: '/company/news'
+      fullPath: '/company/news'
+      preLoaderRoute: typeof CompanyNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/$audience': {
+      id: '/solutions/$audience'
+      path: '/solutions/$audience'
+      fullPath: '/solutions/$audience'
+      preLoaderRoute: typeof SolutionsAudienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  HowWeDoItRoute: HowWeDoItRoute,
+  SuccessStoriesRoute: SuccessStoriesRoute,
+  CompanyAboutUsRoute: CompanyAboutUsRoute,
+  CompanyCareersRoute: CompanyCareersRoute,
+  CompanyNewsRoute: CompanyNewsRoute,
+  SolutionsAudienceRoute: SolutionsAudienceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
