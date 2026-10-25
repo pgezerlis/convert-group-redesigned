@@ -64,7 +64,7 @@ function Home() {
       {/* 2 · Credibility strip */}
       <section aria-labelledby="proof-h" className="border-y border-border">
         <div className="container-cg flex flex-col gap-6 py-10 lg:flex-row lg:items-center lg:gap-12">
-          <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams</h2>
+          <h2 id="proof-h" className="eyebrow shrink-0 !text-[0.8125rem] !tracking-[0.06em]">Trusted by retail teams across 12 countries</h2>
           <div className="flex flex-1 flex-col gap-3">
             <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {CLIENTS.map((c) => (
