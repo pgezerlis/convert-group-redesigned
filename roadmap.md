@@ -1,4 +1,4 @@
 # Roadmap
-- [ ] Convert Group redesign per convertgroup-design.md (homepage + all interior routes)
-- [ ] Use uploaded logo file (Convert_Group_logo_default.png) unaltered in header + favicon
-- [ ] Open: approved customer logos, photography, stories, contact form destination (awaiting content)
+- [x] Convert Group redesign per convertgroup-design.md (homepage + all interior routes)
+- [x] Use uploaded logo file unaltered in header + favicon
+- [ ] Waiting on client: approved customer logos, photography, success stories, team profiles, contact details, legal links, contact-form delivery service

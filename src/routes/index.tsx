@@ -59,7 +59,7 @@ function Home() {
           <ul className="grid flex-1 grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {[1, 2, 3, 4, 5].map((n) => (
               <li key={n}>
-                <Pending label={`Approved client logo ${n}`} ratio="h-14" className="p-2" />
+                <Pending label={`Client logo ${n}`} ratio="h-16" className="p-2" />
               </li>
             ))}
           </ul>
