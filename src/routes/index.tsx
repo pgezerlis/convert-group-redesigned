@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Convert helps retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and technology to build that capability in-house.",
+          "Convert Group helps retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and technology to build that capability in-house.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

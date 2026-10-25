@@ -31,4 +31,4 @@ export const NAV: NavItem[] = [
 export const isGroup = (i: NavItem): i is NavGroup => "children" in i;
 
 export const POSITIONING =
-  "Convert helps retailers, marketplaces and delivery apps make data monetisation a core internal capability.";
+  "Convert Group helps retailers, marketplaces and delivery apps make data monetisation a core internal capability.";

@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Convert Group — Data monetisation as a core capability" },
-      { name: "description", content: "Convert helps retailers, marketplaces and delivery apps make data monetisation a core internal capability." },
+      { name: "description", content: "Convert Group helps retailers, marketplaces and delivery apps make data monetisation a core internal capability." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
