@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Add a hero switch that turns the first section's background into convertgroup.com's navy
 - [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
 - [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
 - [ ] Waiting on Pan: app screenshots for Market Shares, Sales Growth Insights, Search & Navigation and Retail Media Strategy
