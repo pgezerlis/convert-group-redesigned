@@ -23,5 +23,7 @@
 - [x] Add Home as the first item in the header and mobile menu; start the hero with its navy switch on
 - [x] Show the solutions proof strip only where more than one client has approved a mark (marketplaces and delivery apps now hidden)
 - [x] Add official Privacy Policy and Cookie Policy links and the four original social profiles to the footer
+- [x] Compact the homepage "Five services. One goal" section so it reads at about one screen
+
 - [ ] Add Terms link — waiting on its official URL (not present on convertgroup.com; common terms URLs return 404)
 - [ ] Waiting on client: photography, success stories, team profiles, contact-form delivery service
