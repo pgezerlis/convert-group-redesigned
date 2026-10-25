@@ -44,7 +44,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "retail-media-strategy",
       title: "Retail Media Strategy",
       description: "Measure the effectiveness of retail media campaigns with real-time, data-backed insights that show clear results. We provide detailed attribution level metrics, ROAS, incremental ROAS, ROI and campaign post impact, ensuring brands have full transparency. By offering detailed and incremental measurement, brands can fine-tune their media strategies, build trust with suppliers, and drive increased media budgets over time.",
-      screenshot: { src: retailMedia.url, alt: "Retail Media Strategy: campaign results with estimated incremental sales in the app", width: 1920, height: 1248 },
+      screenshot: { src: retailMedia.url, alt: "Retail Media Strategy: campaign results with estimated incremental sales in the app", width: 1920, height: 1080 },
     },
   ],
 };
