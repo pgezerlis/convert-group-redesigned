@@ -1,16 +1,20 @@
 import { MONETISABLE_INSIGHTS } from "@/lib/content";
 import { Pending } from "@/components/site/ui";
 import { AssistantChat } from "@/components/site/AssistantChat";
+import { NavyRow, useNavy } from "@/components/site/NavySection";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 type Advice = { brand: string; trigger: string; text: string };
 
 export function MonetisableInsights() {
   const first = MONETISABLE_INSIGHTS.areas[0]?.slug ?? "market-shares";
+  const state = useNavy();
 
   return (
-    <section aria-labelledby="monetisable-insights-heading" className="section border-t border-border">
+    <section aria-labelledby="monetisable-insights-heading" className={cn("section border-t border-border transition-colors duration-300", state.navy && "on-dark")}>
       <div className="container-cg">
+        <NavyRow {...state} />
         <div className="max-w-[48rem]">
           <h2 id="monetisable-insights-heading" className="tracking-normal">{MONETISABLE_INSIGHTS.title}</h2>
           <p className="body-lg mt-6 text-muted-foreground">{MONETISABLE_INSIGHTS.intro}</p>

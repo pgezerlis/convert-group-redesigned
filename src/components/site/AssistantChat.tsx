@@ -62,7 +62,7 @@ export function AssistantChat({ items }: { items: readonly Advice[] }) {
   }, [messages, typing]);
 
   return (
-    <div className="flex h-[480px] flex-col border border-border bg-background shadow-sm">
+    <div className="cg-chat flex h-[480px] flex-col border border-border bg-background shadow-sm">
       <div className="flex items-center gap-2 border-b border-border px-4 py-3">
         <span className="h-2 w-2 rounded-full bg-cyan" aria-hidden />
         <p className="data-label text-navy">AI Brand Assistant</p>
