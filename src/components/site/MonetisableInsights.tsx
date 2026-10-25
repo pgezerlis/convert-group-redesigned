@@ -30,7 +30,7 @@ export function MonetisableInsights() {
           {MONETISABLE_INSIGHTS.areas.map((area, index) => {
             const advice = "advice" in area ? (area.advice as readonly Advice[]) : null;
             const shot = !advice && area.screenshot ? area.screenshot : null;
-            const label = <p className="data-label mb-4 text-muted-foreground">{String(index + 1).padStart(2, "0")}</p>;
+            const label = <p className="data-label mb-4 text-muted-foreground">{String(index + 1).padStart(2, "0")} · {area.status === "planned" ? "Product concept · planned" : "Available today"}</p>;
             const heading = <h3 id={`insight-${area.slug}`} className="tracking-normal">{area.title}</h3>;
             const body = <p className="body-lg mt-5 text-muted-foreground">{area.description}</p>;
 

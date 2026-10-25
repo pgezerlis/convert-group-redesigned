@@ -1,31 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClosingCTA, PageHero, SectionIntro } from "@/components/site/ui";
-import { METHOD } from "@/lib/content";
+import { DELIVERY_TERMS, METHOD } from "@/lib/content";
 
 export const Route = createFileRoute("/how-we-do-it")({
   head: () => ({
     meta: [
       { title: "How we do it — Convert Group" },
-      { name: "description", content: "Four stages to make data monetisation a capability your own team runs: define, model, equip, operate." },
+      { name: "description", content: "Five services for insourcing data monetisation: strategy, data readiness and maintenance, technology, customer success and selling support." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "How we do it — Convert Group" },
-      { property: "og:description", content: "From first opportunity to a data monetisation capability your team owns." },
+      { property: "og:description", content: "Bring data monetisation in-house with five services, one-year contracts and agreed permission to copy the platform for internal use." },
     ],
   }),
   component: Page,
 });
 
 const MODEL = [
-  { k: "Convert brings", v: ["Commercial framework", "Know-how from prior programmes", "Technology where needed"] },
+  { k: "Convert brings", v: METHOD.map((service) => service.title) },
   { k: "Your team owns", v: ["Offers and pricing decisions", "Partner relationships", "Ongoing delivery and growth"] },
 ];
 
 function Page() {
   return (
     <>
-      <PageHero eyebrow="How we do it" title="A capability your team runs — not a project we hand over.">
-        We work alongside your commercial, data and partnership teams until data monetisation is part of how your business operates.
+      <PageHero eyebrow="How we do it · Insourcing" title="Data monetisation. Run by your team.">
+        Strategy, data readiness and maintenance, technology, customer success and selling support. Choose the support you need to bring data monetisation into your business, without making permanent vendor dependence the goal.
       </PageHero>
 
       <section className="section">
@@ -46,7 +46,7 @@ function Page() {
               </li>
             ))}
           </ol>
-          <p className="data-label mt-6 text-muted-foreground">Stages describe our proposed approach; scope and timing are agreed with each client.</p>
+          <p className="data-label mt-6 text-muted-foreground">Our five current services; scope and responsibilities are agreed with each client.</p>
         </div>
       </section>
 
@@ -83,6 +83,7 @@ function Page() {
           <div className="body-lg space-y-5 text-muted-foreground lg:col-span-6 lg:col-start-7">
             <p>Many organisations already have the data platform and reporting tools to deliver a first offer. In that case, we focus on the commercial model and the team.</p>
             <p>Where delivering insight to partners needs capabilities you don’t have — secure partner reporting, aggregation, governed access — Convert technology can help. The decision follows the offer, not the other way round.</p>
+            <p>{DELIVERY_TERMS.summary}</p>
           </div>
         </div>
       </section>

@@ -65,7 +65,7 @@ export function AssistantChat({ items }: { items: readonly Advice[] }) {
     <div className="cg-chat flex h-[480px] flex-col border border-border bg-background shadow-sm">
       <div className="flex items-center gap-2 border-b border-border px-4 py-3">
         <span className="h-2 w-2 rounded-full bg-cyan" aria-hidden />
-        <p className="data-label text-navy">AI Brand Assistant</p>
+        <p className="data-label text-navy">AI Brand Assistant · Concept</p>
       </div>
       <div ref={scrollRef} aria-live="polite" className="flex-1 space-y-4 overflow-y-auto px-4 py-5">
         {messages.map((m, i) =>
@@ -92,7 +92,7 @@ export function AssistantChat({ items }: { items: readonly Advice[] }) {
         )}
       </div>
       <div className="border-t border-border px-4 py-3">
-        <div className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground">Ask about your brand…</div>
+        <p className="text-xs text-muted-foreground">Illustrative conversation · Not a live service</p>
       </div>
     </div>
   );

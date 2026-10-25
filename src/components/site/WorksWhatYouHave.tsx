@@ -3,7 +3,7 @@ import { NavyRow, useNavy } from "@/components/site/NavySection";
 import { MCP_SECTION } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-/** Homepage section: data reaches brand partners through Convert's MCP, in the AI tools they already use. */
+/** Proposed connectivity direction, not a claim of currently available integrations. */
 export function WorksWhatYouHave() {
   const state = useNavy();
 

@@ -13,16 +13,33 @@ import copilotMark from "@/assets/tools/microsoftcopilot.svg";
 /** The 12 countries where Convert Group operates (shared by About Us and the presence map). */
 export const COUNTRIES = ["Czechia", "France", "Germany", "Greece", "Italy", "Kenya", "Netherlands", "Poland", "Romania", "Serbia", "Slovakia", "Spain"];
 
+/** Board-approved commercial terms; the written agreement defines licence scope. */
+export const DELIVERY_TERMS = {
+  contractMonths: 12,
+  permitsInternalPlatformCopy: true,
+  summary: "One-year contracts, with permission to copy the platform for internal use as agreed in your contract. The written agreement defines the scope of that permission.",
+} as const;
+
+export const RETAIL_DATA_HISTORY = { years: 12, usedForAlgorithmTraining: false } as const;
+
+export const PRODUCT_DIRECTIONS = [
+  { id: "ai-advice", status: "planned" },
+  { id: "mcp", status: "planned" },
+  { id: "internal-presentations", status: "planned" },
+  { id: "forward-looking-advice", status: "planned" },
+] as const;
+
 
 /** Original homepage copy; only user-supplied application captures are shown. */
 export const MONETISABLE_INSIGHTS = {
   title: "Data & Insights Retailers can Monetise",
-  intro: "Leverage data to fuel smarter, more effective strategies. With Convert Group, you can offer brands comprehensive insights across key areas of the customer journey, enabling them to optimise campaigns, increase ROI, and drive growth.",
+  intro: "Give your brand partners a clearer view of performance, shoppers and campaigns through five insight areas available today. Alongside them, explore our proposed direction for AI-assisted brand advice.",
   areas: [
     {
       slug: "ai-assistant",
       title: "AI Brand Assistant",
-      description: "An AI assistant that turns your data and outside signals — weather, health trends, calendar moments, prices — into concrete advice for each brand: what to stock, where, and when to spend.",
+      status: "planned",
+      description: "A proposed AI assistant combining retail data with outside signals to help brands decide what to stock, where and when to act. These example conversations illustrate the intended advice capability, not live forecasts, verified brand results or a service available today.",
       screenshot: null,
       advice: [
         { brand: "Grupo Petrópolis", trigger: "Heat wave", text: "A 38°C+ weekend is forecast for Rio and São Paulo, and in past heat waves beer orders on iFood rose about 40%, mostly from 18:00 to 23:00. Push extra cans to the 120 convenience merchants that ran out last time, and move retail media spend on iFood to the evening." },
@@ -34,30 +51,35 @@ export const MONETISABLE_INSIGHTS = {
     {
       slug: "market-shares",
       title: "Market Shares",
+      status: "available",
       description: "Provide Brands with a clear understanding of their position in the market. Offer detailed, SKU-level insights that highlight performance trends across categories, brands, and products. Include metrics such as conversion rates, page views, and stock availability, allowing them to make data-driven decisions and optimise their product offerings in real-time.",
       screenshot: { src: marketShares.url, alt: "Market Shares: brand performance overview with share metrics", width: 1920, height: 1200 },
     },
     {
       slug: "sales-growth-insights",
       title: "Sales Growth Insights",
+      status: "available",
       description: "Every Brand needs to understand the “why” behind fluctuations in their sales figures. With our platform, brands gain instant, in-depth insights into their performance, breaking down sales data into granular components. Our intuitive, visual reports uncover the key drivers of sales changes—whether it’s promotions, seasonality, or market shifts—empowering brands to refine their strategies, optimise inventory, and seize new growth opportunities with confidence.",
       screenshot: { src: salesGrowth.url, alt: "Sales Growth Insights: KPI tree breaking down sales growth drivers", width: 1920, height: 1152 },
     },
     {
       slug: "search-navigation",
       title: "Search & Navigation",
+      status: "available",
       description: "Share real-time insights into how customers discover, research, and purchase products across your platform. Track and analyse consumer behaviors—from search queries and navigation patterns to purchase pathways. This data empowers brands to refine their digital marketing strategies, personalise customer experiences, and optimise their retail media campaigns for higher engagement.",
       screenshot: { src: siteNavigation.url, alt: "Search & Navigation: site search and navigation demand in the app", width: 1920, height: 1104 },
     },
     {
       slug: "customer-insights",
       title: "Customer Insights",
+      status: "available",
       description: "Unlock powerful data on your audience—whether for your brand, competitors, or categories. Analyse segments like age, gender, income, lifestyle, and buying behavior to spot cross-sell opportunities, high-value bundles, and category affinities that drive sales. With this, brands can fine-tune targeting, personalise offers, and optimise product assortments for better conversions.",
       screenshot: { src: bundleOpportunities.url, alt: "Bundle Opportunities: product affinities in a basket analysis heatmap", width: 1920, height: 1104 },
     },
     {
       slug: "retail-media-strategy",
       title: "Retail Media Strategy",
+      status: "available",
       description: "Measure the effectiveness of retail media campaigns with real-time, data-backed insights that show clear results. We provide detailed attribution level metrics, ROAS, incremental ROAS, ROI and campaign post impact, ensuring brands have full transparency. By offering detailed and incremental measurement, brands can fine-tune their media strategies, build trust with suppliers, and drive increased media budgets over time.",
       screenshot: { src: retailMedia.url, alt: "Retail Media Strategy: campaign results with estimated incremental sales in the app", width: 1920, height: 1080 },
     },
@@ -67,39 +89,52 @@ export const MONETISABLE_INSIGHTS = {
 export const METHOD = [
   {
     n: "01",
-    title: "Define the opportunity",
+    id: "strategy-consulting",
+    title: "Strategy & consulting",
     question: "Which data assets could create value for which commercial partners?",
     output: "Opportunity map",
     owner: "Your commercial and data leads",
     detail:
-      "We review the signals you already hold — categories, search, availability, purchase missions — and identify who would value them and what is permitted to share.",
+      "We identify valuable data assets, permitted uses and the partners who would buy them. Together we define the offer, pricing and operating model, with insourcing as the goal.",
   },
   {
     n: "02",
-    title: "Build the commercial model",
-    question: "What exactly do we sell, to whom, and at what price?",
-    output: "Proposition and pricing framework",
-    owner: "Your commercial team, with finance",
+    id: "data-readiness-maintenance",
+    title: "Data readiness & maintenance",
+    question: "Is our data ready to support a reliable commercial offer?",
+    output: "Data readiness and maintenance plan",
+    owner: "Your data and category teams",
     detail:
-      "We shape concrete offers with defined buyers, scope, delivery cadence and pricing logic, grounded in what partners actually buy.",
+      "We help prepare and maintain the data behind your offer, including category structures and data processes. Your team builds the know-how to manage these internally.",
   },
   {
     n: "03",
-    title: "Equip the team",
-    question: "Who sells it, delivers it and owns the relationships?",
-    output: "Sales playbook and operating roles",
-    owner: "The team that will run it",
+    id: "technology",
+    title: "Technology",
+    question: "What technology do we need to deliver the insight?",
+    output: "Insight delivery platform and agreed setup",
+    owner: "Your technology and data teams",
     detail:
-      "We transfer the know-how: playbooks, account approach, internal roles and — where your existing stack falls short — the technology to deliver.",
+      "Use your existing tools where they fit and our data monetisation platform where it is needed. We focus on practical, cost-conscious delivery rather than a platform-first commitment.",
   },
   {
     n: "04",
-    title: "Operate and improve",
-    question: "Is it working, and what should we change next?",
-    output: "Reporting cadence",
-    owner: "Your team, with Convert as needed",
+    id: "customer-success",
+    title: "Customer success",
+    question: "How do partners get value from the insight?",
+    output: "Partner onboarding and ongoing support",
+    owner: "Your partner-facing team, supported by Convert Group",
     detail:
-      "We set up a regular review rhythm so the capability matures inside your organisation and keeps improving after launch.",
+      "We support onboarding, insight use and ongoing partner relationships. Your team takes an active role in delivery and builds the capability to run the programme internally.",
+  },
+  {
+    n: "05",
+    id: "selling-support",
+    title: "Selling support",
+    question: "How do we turn the offer into partner sales?",
+    output: "Sales playbook and commercial support",
+    owner: "Your commercial and partnership teams",
+    detail: "We help your team package the offer, explain its value and support partner sales. You own the pricing decisions and commercial relationships.",
   },
 ] as const;
 
@@ -243,13 +278,13 @@ export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === sl
 /** FAQ answers reuse existing site copy rather than adding new product claims. */
 /** Homepage MCP section copy; official tool marks only (simple-icons / Microsoft's own SVG), never redrawn. */
 export const MCP_SECTION = {
-  eyebrow: "Built on MCP",
+  eyebrow: "Product direction · planned",
   title: "Works with what you have.",
   body: [
-    "Your brand partners don’t need another dashboard. Through Convert’s MCP, the data you share reaches the AI tools their teams already use — Claude, ChatGPT, Copilot — and becomes part of the work they do there.",
-    "You keep control of what each partner can reach; they bring their own tools to it.",
+    "We are exploring MCP connectivity so brand partners could work with the retail data you choose to share inside tools such as Claude, ChatGPT and Copilot, rather than relying only on another dashboard.",
+    "Our proposed direction also includes AI-assisted internal presentations and forward-looking advice. These are planned capabilities, not integrations or services available today; availability and scope will be confirmed separately.",
   ],
-  toolsLabel: "Tools your partners already use",
+  toolsLabel: "Tools considered for future connectivity",
   tools: [
     { name: "Claude", mark: claudeMark, alt: "Claude logo" },
     { name: "ChatGPT", mark: chatgptMark, alt: "ChatGPT logo" },
@@ -261,7 +296,7 @@ export const FAQS = [
   {
     id: "what-we-do",
     question: "What does Convert Group do?",
-    answer: "We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.",
+    answer: "We help retailers, marketplaces and delivery apps bring data monetisation in-house through strategy and consulting, data readiness and maintenance, technology, customer success and selling support.",
   },
   {
     id: "partners",
@@ -271,17 +306,22 @@ export const FAQS = [
   {
     id: "insights",
     question: "What kinds of insights can retailers monetise?",
-    answer: MONETISABLE_INSIGHTS.areas.map((area) => area.title).join(", ") + ".",
+    answer: MONETISABLE_INSIGHTS.areas.filter((area) => area.status === "available").map((area) => area.title).join(", ") + ". AI Brand Assistant is a proposed product direction, illustrated with example conversations rather than a live service.",
   },
   {
     id: "commercial-model",
     question: "How is the commercial model developed?",
-    answer: METHOD[1].detail,
+    answer: "We shape concrete offers with defined buyers, scope, delivery cadence and pricing logic, grounded in what partners actually buy.",
   },
   {
     id: "team-ownership",
     question: "Who runs the capability inside our business?",
     answer: SOLUTIONS[0]?.situation[2]?.body ?? "The relationships belong with your commercial team. We build the framework so they can run it confidently.",
+  },
+  {
+    id: "contract-and-insourcing",
+    question: "Can we bring the technology in-house, and what is the contract term?",
+    answer: DELIVERY_TERMS.summary,
   },
   {
     id: "getting-started",

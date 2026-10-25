@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { COUNTRIES } from "@/lib/content";
+import { COUNTRIES, RETAIL_DATA_HISTORY } from "@/lib/content";
 import { ClosingCTA, PageHero, SectionIntro } from "@/components/site/ui";
 
 export const Route = createFileRoute("/company/about-us")({
   head: () => ({
     meta: [
       { title: "About Us — Convert Group" },
-      { name: "description", content: "Convert Group's mission: be the way retailers and brands collaborate through data in omni-channel retail. Meet the team." },
+      { name: "description", content: "Convert Group helps retailers build data monetisation in-house, combining retail data experience with strategy, technology and commercial support." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "About Us — Convert Group" },
-      { property: "og:description", content: "Be the way retailers and brands collaborate through data in omni-channel retail." },
+      { property: "og:description", content: "Retail data experience, retailer-brand collaboration and data monetisation built into your business." },
     ],
   }),
   component: Page,
@@ -74,8 +74,8 @@ function Page() {
           </dl>
           <div className="mt-16 grid gap-10 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-foreground">Leading the Market Intelligence space in omni-channel retail across Europe and the globe.</h3>
-              <p className="mt-4 text-muted-foreground">We combine our platform with data & analytics consulting services to unlock the digital potential of manufacturers and retailers across the globe.</p>
+              <h3 className="text-xl font-semibold text-foreground">{RETAIL_DATA_HISTORY.years} years of retail data. Practical support for insourcing.</h3>
+              <p className="mt-4 text-muted-foreground">Our accumulated retail data and experience inform how we work with retailers. We combine strategy and consulting, data readiness and maintenance, technology, customer success and selling support to help your team run data monetisation internally.</p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-foreground">Many of the world’s leading brands use our platform to strengthen their retail strategies.</h3>
