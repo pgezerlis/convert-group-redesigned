@@ -32,6 +32,9 @@ export const Route = createFileRoute("/solutions/$audience")({
 
 function Page() {
   const s = Route.useLoaderData();
+  // One approved mark reads better in the copy than as a logo strip, so this section
+  // appears only where more than one client has approved a mark.
+  const clients = getSolutionClients(s.slug);
   return (
     <>
       <PageHero eyebrow={`Solutions · ${s.label}`} title={s.title} breadcrumb={{ label: "Solutions", current: s.label }}>
@@ -109,19 +112,21 @@ function Page() {
         </div>
       </section>
 
-      <section className="section border-t border-border">
-        <div className="container-cg grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-5"><SectionIntro eyebrow="Proof" title={`${s.label} we’ve worked with`} /></div>
-          <div className="lg:col-span-7">
-            <ul className="flex flex-wrap items-center gap-x-10 gap-y-6">
-              {getSolutionClients(s.slug).map((c) => (
-                <li key={c.slug} className="flex items-center"><ClientLogo client={c} /></li>
-              ))}
-            </ul>
-          </div>
+      {clients.length > 1 && (
+        <section className="section border-t border-border">
+          <div className="container-cg grid gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-5"><SectionIntro eyebrow="Proof" title={`${s.label} we’ve worked with`} /></div>
+            <div className="lg:col-span-7">
+              <ul className="flex flex-wrap items-center gap-x-10 gap-y-6">
+                {clients.map((c) => (
+                  <li key={c.slug} className="flex items-center"><ClientLogo client={c} /></li>
+                ))}
+              </ul>
+            </div>
 
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       <ClosingCTA />
     </>
