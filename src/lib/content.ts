@@ -219,5 +219,4 @@ export const CLIENTS: { name: string; countries: { code: string; name: string }[
   { name: "PLUS", countries: [ { code: "nl", name: "Netherlands" } ] },
   { name: "Naivas", countries: [ { code: "ke", name: "Kenya" } ] },
   { name: "Skroutz", countries: [ { code: "gr", name: "Greece" } ] },
-  { name: "efood", countries: [ { code: "gr", name: "Greece" } ] },
 ];
