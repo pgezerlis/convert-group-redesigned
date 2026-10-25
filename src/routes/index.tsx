@@ -3,6 +3,8 @@ import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
 import { InsightIcon } from "@/components/site/InsightIcons";
+import { ServiceIcon } from "@/components/site/ServiceIcons";
+
 import { WorksWhatYouHave } from "@/components/site/WorksWhatYouHave";
 import { SiteFAQ } from "@/components/site/SiteFAQ";
 import { NavyRow, NavySwitch, useNavy } from "@/components/site/NavySection";
@@ -143,9 +145,13 @@ function Home() {
           </div>
           <ol className="mt-12 border-t border-navy">
             {METHOD.map((m) => (
-              <li key={m.n} className="grid gap-3 border-b border-border py-8 lg:grid-cols-12 lg:gap-8">
+              <li key={m.n} className="cg-service grid gap-3 border-b border-border py-8 lg:grid-cols-12 lg:gap-8">
                 <span className="data-label text-lg font-medium text-navy lg:col-span-1">{m.n}</span>
-                <h3 className="lg:col-span-4">{m.title}</h3>
+                <h3 className="flex items-start gap-3 lg:col-span-4">
+                  <ServiceIcon id={m.id} className="mt-0.5 h-6 w-6 shrink-0" />
+                  <span>{m.title}</span>
+                </h3>
+
                 <p className="body-lg text-muted-foreground lg:col-span-4">{m.detail}</p>
                 <dl className="text-sm lg:col-span-3">
                   <dt className="data-label text-muted-foreground">Output</dt>
