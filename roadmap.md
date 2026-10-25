@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Combine the five areas into one user-selected section inspired by Zenlytic integrations
+- [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
 - [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
 - [ ] Waiting on Pan: app screenshots for Market Shares, Sales Growth Insights, Search & Navigation and Retail Media Strategy
 - [x] Copy the five approved news articles in full and make them readable on the new site
