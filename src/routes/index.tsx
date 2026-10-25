@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
+import { MonetisableInsights } from "@/components/site/MonetisableInsights";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
 
@@ -105,6 +106,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <MonetisableInsights />
 
       {/* 4 · How we do it */}
       <section className="section bg-surface">
