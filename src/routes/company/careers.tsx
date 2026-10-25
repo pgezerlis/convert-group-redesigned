@@ -6,6 +6,8 @@ export const Route = createFileRoute("/company/careers")({
     meta: [
       { title: "Careers — Convert Group" },
       { name: "description", content: "Work at Convert Group, where commercial and technical people help retail businesses monetise their data." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Careers — Convert Group" },
       { property: "og:description", content: "Join the Convert Group team." },
     ],

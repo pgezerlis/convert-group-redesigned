@@ -7,6 +7,8 @@ export const Route = createFileRoute("/how-we-do-it")({
     meta: [
       { title: "How we do it — Convert Group" },
       { name: "description", content: "Four stages to make data monetisation a capability your own team runs: define, model, equip, operate." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "How we do it — Convert Group" },
       { property: "og:description", content: "From first opportunity to a data monetisation capability your team owns." },
     ],

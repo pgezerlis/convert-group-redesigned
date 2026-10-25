@@ -14,6 +14,8 @@ export const Route = createFileRoute("/")({
         content:
           "Convert helps retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and technology to build that capability in-house.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Convert Group — Make data monetisation a core capability" },
       {
         property: "og:description",

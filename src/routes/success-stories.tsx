@@ -8,6 +8,8 @@ export const Route = createFileRoute("/success-stories")({
     meta: [
       { title: "Success Stories — Convert Group" },
       { name: "description", content: "How retailers, marketplaces and delivery apps have built data monetisation capability with Convert." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Success Stories — Convert Group" },
       { property: "og:description", content: "Customer stories on building data monetisation as a core capability." },
     ],
