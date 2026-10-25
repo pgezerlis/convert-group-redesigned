@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSiteAppearance } from "@/components/site/SiteAppearance";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
-import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
-import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
+import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
@@ -188,37 +187,6 @@ function Home() {
             <ArrowLink to="/company/news/$slug" params={{ slug: FEATURED_STORY.slug }} className="mt-8">
               Read the story
             </ArrowLink>
-          </div>
-        </div>
-      </section>
-
-      {/* 7 · Capability stays */}
-      <section className="section">
-        <div className="container-cg grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
-            <Pending label="Real photograph: Convert and client team working session" ratio="aspect-[4/5]" />
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7">
-            <SectionIntro eyebrow="Capability that stays" title="Your team owns it. We make sure they can.">
-              <p>
-                We bring the commercial framework and the know-how from doing this before. Your people lead the offers, the relationships and the decisions. Where your current stack is enough, we use it; where it isn’t, Convert technology fills the gap.
-              </p>
-            </SectionIntro>
-            <dl className="mt-10 grid gap-6 border-t border-navy pt-6 sm:grid-cols-3">
-              {[
-                ["Framework", "Offers, pricing and governance"],
-                ["Know-how", "Playbooks and practical coaching"],
-                ["Technology", "Only where it’s needed"],
-              ].map(([k, v]) => (
-                <div key={k}>
-                  <dt className="font-semibold text-navy">{k}</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">{v}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-12">
-              <IllustrativeWorkflow />
-            </div>
           </div>
         </div>
       </section>
