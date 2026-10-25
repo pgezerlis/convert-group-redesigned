@@ -18,14 +18,14 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Convert Group helps retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and technology to build that capability in-house.",
+          "Bring data monetisation in-house with Convert Group: strategy, data readiness and maintenance, technology, customer success and selling support.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Convert Group — Make data monetisation a core capability" },
       {
         property: "og:description",
-        content: "Commercial framework, know-how and, where needed, technology to make data monetisation a core internal capability.",
+        content: "Strategy, data readiness, technology, customer success and selling support — built around insourcing.",
       },
     ],
   }),
@@ -55,7 +55,7 @@ function Home() {
             <p className="eyebrow mb-6">Data monetisation. Built into your business.</p>
             <h1 className="max-w-[13ch]">Make data monetisation a core internal capability.</h1>
             <p className="lede mt-6 max-w-[48ch]">
-              We help retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and, where needed, technology to build that capability in-house.
+              Bring data monetisation in-house. We support retailers, marketplaces and delivery apps with strategy, data readiness and maintenance, technology, customer success and selling support — while your team builds the capability to run it.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
               <TalkToUs variant={hero.navy ? "cyan" : "primary"} />
@@ -136,7 +136,9 @@ function Home() {
         <div className="container-cg">
           <NavyRow {...method} />
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <SectionIntro eyebrow="How we do it" title="From first opportunity to a capability you own." />
+            <SectionIntro eyebrow="What we offer today" title="Five services. One goal: a capability you own.">
+              <p>Internalising data processes, category knowledge and partner delivery takes more than software. We work alongside your team, with cost-conscious support where you need it.</p>
+            </SectionIntro>
             <ArrowLink to="/how-we-do-it" className="shrink-0">Our approach in detail</ArrowLink>
           </div>
           <ol className="mt-12 border-t border-navy">
