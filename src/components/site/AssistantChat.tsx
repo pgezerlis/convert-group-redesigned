@@ -7,7 +7,7 @@ function promptFor(a: Advice) {
   return `What should ${a.brand} do about the ${a.trigger.toLowerCase()}?`;
 }
 
-/** One ChatGPT-style window that plays the example exchanges in turn. */
+/** One ChatGPT-style window that plays the example exchanges one at a time. */
 export function AssistantChat({ items }: { items: readonly Advice[] }) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [typing, setTyping] = useState(false);
@@ -24,10 +24,13 @@ export function AssistantChat({ items }: { items: readonly Advice[] }) {
     const wait = (ms: number) => new Promise<void>((r) => timers.push(window.setTimeout(r, ms)));
     (async () => {
       while (!cancelled) {
-        setMessages([]);
         for (const a of items) {
           if (cancelled) return;
-          await wait(700);
+          // Each example starts from an empty window.
+          setMessages([]);
+          setTyping(false);
+          await wait(600);
+          if (cancelled) return;
           setMessages((m) => [...m, { role: "user", text: promptFor(a) }]);
           setTyping(true);
           await wait(1100);
@@ -40,9 +43,11 @@ export function AssistantChat({ items }: { items: readonly Advice[] }) {
             const t = words.slice(0, i).join(" ");
             setMessages((m) => [...m.slice(0, -1), { role: "assistant", text: t }]);
           }
-          await wait(2200);
+          await wait(2400);
         }
-        await wait(3000);
+        if (cancelled) return;
+        setMessages([]);
+        await wait(1200);
       }
     })();
     return () => {
@@ -65,18 +70,18 @@ export function AssistantChat({ items }: { items: readonly Advice[] }) {
       <div ref={scrollRef} aria-live="polite" className="flex-1 space-y-4 overflow-y-auto px-4 py-5">
         {messages.map((m, i) =>
           m.role === "user" ? (
-            <div key={i} className="flex justify-end">
+            <div key={i} className="cg-chat-in flex justify-end">
               <p className="max-w-[80%] rounded-2xl bg-navy px-4 py-2.5 text-sm text-primary-foreground">{m.text}</p>
             </div>
           ) : (
-            <div key={i} className="flex gap-3">
+            <div key={i} className="cg-chat-in flex gap-3">
               <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface text-[10px] font-semibold text-navy" aria-hidden>CG</span>
               <p className="text-sm leading-relaxed text-foreground">{m.text}</p>
             </div>
           ),
         )}
         {typing && (
-          <div className="flex gap-3" aria-label="Assistant is typing">
+          <div className="cg-chat-in flex gap-3" aria-label="Assistant is typing">
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface text-[10px] font-semibold text-navy" aria-hidden>CG</span>
             <span className="flex items-center gap-1 pt-2">
               {[0, 1, 2].map((d) => (
