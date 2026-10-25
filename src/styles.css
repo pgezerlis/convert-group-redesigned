@@ -347,7 +347,63 @@
   }
 }
 
+/* Insight screenshots: settle in when the tab is chosen, then a slow sheen passes. */
+.cg-shot {
+  position: relative;
+  overflow: hidden;
+  animation: cg-shot-in 620ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.cg-shot img {
+  transform-origin: center;
+  animation: cg-shot-zoom 22s ease-in-out infinite;
+}
+.cg-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    color-mix(in srgb, var(--cg-cyan) 16%, transparent) 50%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  animation: cg-shot-sheen 11s ease-in-out infinite;
+}
+
+@keyframes cg-shot-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cg-shot-zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+@keyframes cg-shot-sheen {
+  0%,
+  58% {
+    transform: translateX(-130%);
+  }
+  92%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }

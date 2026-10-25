@@ -4,6 +4,8 @@
 - [x] Redesign the Dr. Max partnership image to match the website, preserving original logos
 - [x] Add a hero switch that turns the first section's background into convertgroup.com's navy
 - [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
+- [x] Make the five insight app shots larger and give them a subtle entrance, slow zoom and sheen
+
 - [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
 - [x] Add the supplied app screenshots to all five monetisable insight areas
 - [x] Copy the five approved news articles in full and make them readable on the new site

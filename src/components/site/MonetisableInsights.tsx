@@ -7,6 +7,7 @@ type Advice = { brand: string; trigger: string; text: string };
 
 export function MonetisableInsights() {
   const first = MONETISABLE_INSIGHTS.areas[0]?.slug ?? "market-shares";
+
   return (
     <section aria-labelledby="monetisable-insights-heading" className="section border-t border-border">
       <div className="container-cg">
@@ -24,21 +25,39 @@ export function MonetisableInsights() {
           </TabsList>
           {MONETISABLE_INSIGHTS.areas.map((area, index) => {
             const advice = "advice" in area ? (area.advice as readonly Advice[]) : null;
+            const shot = !advice && area.screenshot ? area.screenshot : null;
+            const label = <p className="data-label mb-4 text-muted-foreground">{String(index + 1).padStart(2, "0")}</p>;
+            const heading = <h3 id={`insight-${area.slug}`} className="tracking-normal">{area.title}</h3>;
+            const body = <p className="body-lg mt-5 text-muted-foreground">{area.description}</p>;
+
+            if (shot) {
+              return (
+                <TabsContent key={area.slug} value={area.slug} className="mt-0">
+                  <article aria-labelledby={`insight-${area.slug}`} className="py-10">
+                    <div className="max-w-[52rem]">
+                      {label}
+                      {heading}
+                      {body}
+                    </div>
+                    <figure className="cg-shot mt-8 border border-border bg-background shadow-sm">
+                      <img src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} loading="lazy" className="block h-auto w-full" />
+                    </figure>
+                  </article>
+                </TabsContent>
+              );
+            }
+
             return (
               <TabsContent key={area.slug} value={area.slug} className="mt-0">
                 <article aria-labelledby={`insight-${area.slug}`} className="grid min-h-[640px] items-center gap-8 py-10 sm:min-h-[700px] lg:min-h-[480px] lg:grid-cols-12 lg:gap-12">
                   <div className="min-w-0 lg:col-span-5">
-                    <p className="data-label mb-4 text-muted-foreground">{String(index + 1).padStart(2, "0")}</p>
-                    <h3 id={`insight-${area.slug}`} className="tracking-normal">{area.title}</h3>
-                    <p className="body-lg mt-5 text-muted-foreground">{area.description}</p>
+                    {label}
+                    {heading}
+                    {body}
                   </div>
                   <div className="min-w-0 lg:col-span-7">
                     {advice ? (
                       <AssistantChat items={advice} />
-                    ) : area.screenshot ? (
-                      <figure>
-                        <img src={area.screenshot.src} alt={area.screenshot.alt} width={area.screenshot.width} height={area.screenshot.height} loading="lazy" className="block h-auto w-full" />
-                      </figure>
                     ) : (
                       <Pending label={`${area.title} · app screenshot`} ratio="aspect-[1920/1180]" />
                     )}
