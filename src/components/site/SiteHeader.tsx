@@ -5,8 +5,6 @@ import { NAV, PRIMARY_CTA, isGroup, type NavGroup } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { btn } from "./ui";
-import { Switch } from "@/components/ui/switch";
-import { useSiteAppearance } from "./SiteAppearance";
 
 const linkCls =
   "relative inline-flex min-h-11 items-center text-base font-medium text-navy hover:text-ink [&[aria-current=page]]:after:absolute [&[aria-current=page]]:after:inset-x-0 [&[aria-current=page]]:after:bottom-1.5 [&[aria-current=page]]:after:h-0.5 [&[aria-current=page]]:after:bg-navy";
@@ -62,7 +60,6 @@ function Disclosure({ group, open, onToggle, onClose }: { group: NavGroup; open:
 }
 
 export function SiteHeader() {
-  const { navy, setNavy } = useSiteAppearance();
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
@@ -85,14 +82,8 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background">
-      <div className="border-b border-border">
-        <label className="container-cg flex min-h-9 cursor-pointer items-center justify-end gap-3 py-1 text-xs text-muted-foreground">
-          Navy background
-          <Switch checked={navy} onCheckedChange={setNavy} aria-label="Navy background" />
-        </label>
-      </div>
       <div className="container-cg flex h-[var(--header-height)] items-center justify-between gap-3">
-        <Logo inverse={navy} />
+        <Logo />
         <nav ref={navRef} aria-label="Main" className="hidden items-center lg:flex">
           <ul className="flex items-center gap-6">
             {NAV.map((item) => (
