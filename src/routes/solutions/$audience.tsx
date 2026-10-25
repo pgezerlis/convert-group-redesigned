@@ -1,6 +1,8 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ClosingCTA, PageHero, Pending, SectionIntro } from "@/components/site/ui";
+import { ServiceIcon } from "@/components/site/ServiceIcons";
 import { METHOD, getSolution } from "@/lib/content";
+
 
 export const Route = createFileRoute("/solutions/$audience")({
   loader: ({ params }) => {
@@ -92,10 +94,14 @@ function Page() {
           </div>
           <ol className="border-t border-navy lg:col-span-6 lg:col-start-7">
             {METHOD.map((m) => (
-              <li key={m.n} className="grid grid-cols-[40px_1fr] gap-3 border-b border-border py-5">
+              <li key={m.n} className="cg-service grid grid-cols-[40px_1fr] gap-3 border-b border-border py-5">
                 <span className="data-label font-medium text-navy">{m.n}</span>
-                <div><p className="font-semibold text-navy">{m.title}</p><p className="text-sm text-muted-foreground">Output: {m.output}</p></div>
+                <div className="flex items-start gap-3">
+                  <ServiceIcon id={m.id} className="mt-0.5 h-5 w-5 shrink-0" />
+                  <div><p className="font-semibold text-navy">{m.title}</p><p className="text-sm text-muted-foreground">Output: {m.output}</p></div>
+                </div>
               </li>
+
             ))}
           </ol>
         </div>

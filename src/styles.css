@@ -468,7 +468,54 @@
   }
 }
 
+/* Service rows: a cyan spine opens down the hovered service and its mark lifts. */
+.cg-service {
+  position: relative;
+  transition:
+    padding-left 320ms var(--ease-standard),
+    background-color 320ms var(--ease-standard);
+}
+.cg-service::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--cg-cyan);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 320ms var(--ease-standard);
+}
+.cg-service:hover::before,
+.cg-service:focus-within::before {
+  transform: scaleY(1);
+}
+.cg-service:hover,
+.cg-service:focus-within {
+  padding-left: 0.75rem;
+}
+.cg-service .cg-svc {
+  transition:
+    transform 320ms var(--ease-standard),
+    opacity 320ms var(--ease-standard);
+}
+.cg-service:hover .cg-svc,
+.cg-service:focus-within .cg-svc {
+  transform: translateY(-2px);
+}
+.cg-svc-accent {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 320ms var(--ease-standard);
+}
+.cg-service:hover .cg-svc-accent,
+.cg-service:focus-within .cg-svc-accent {
+  transform: scale(1.4);
+}
+
 @media (prefers-reduced-motion: reduce) {
+
 
   html {
     scroll-behavior: auto;
