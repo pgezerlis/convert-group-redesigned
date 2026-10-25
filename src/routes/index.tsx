@@ -60,11 +60,11 @@ function Home() {
           <div className="flex flex-1 flex-col gap-3">
             <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
               {CLIENTS.map((c) => (
-                <li key={c.slug} className="flex flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center">
+                <li key={c.slug} className="flex flex-col items-center justify-center gap-2 rounded-[var(--radius-panel)] border border-border px-3 py-4 text-center last:col-span-2 sm:last:col-span-1">
                   <ClientLogo client={c} />
-                  <span className="flex flex-wrap justify-center gap-1">
+                  <span className="flex flex-wrap justify-center gap-0.5">
                     {c.countries.map((k) => (
-                      <img key={k.code} src={`https://flagcdn.com/w40/${k.code}.png`} alt={k.name} title={k.name} width={20} height={14} loading="lazy" className="h-3.5 w-5 rounded-[2px] border border-border object-cover" />
+                      <img key={k.code} src={`https://flagcdn.com/w40/${k.code}.png`} alt={k.name} title={k.name} width={18} height={13} loading="lazy" className="h-[13px] w-[18px] rounded-[2px] border border-border object-cover" />
                     ))}
                   </span>
                 </li>

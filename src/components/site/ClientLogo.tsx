@@ -20,6 +20,10 @@ export function hasClientMark(slug: string) {
   return Boolean(clientMark(slug));
 }
 
+/** Marks arrive at very different shapes; sizing them to a similar optical area
+ *  keeps the strip even instead of letting a wide wordmark dwarf a compact one. */
+const TARGET_AREA = 2400;
+
 export function ClientLogo({ client, className }: { client: Client; className?: string }) {
   const mark = clientMark(client.slug);
 
@@ -28,9 +32,15 @@ export function ClientLogo({ client, className }: { client: Client; className?: 
       <img
         src={mark.url}
         alt={`${client.name} logo`}
-        width={140}
-        height={28}
         loading="lazy"
+        onLoad={(e) => {
+          const el = e.currentTarget;
+          const ratio = el.naturalWidth / el.naturalHeight;
+          if (!ratio) return;
+          const h = Math.min(40, Math.max(22, Math.sqrt(TARGET_AREA / ratio)));
+          el.style.height = `${Math.round(h)}px`;
+          el.style.width = `${Math.round(h * ratio)}px`;
+        }}
         className={cn("h-7 w-auto max-w-[9rem] object-contain", className)}
       />
     );
