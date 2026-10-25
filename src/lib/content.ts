@@ -4,6 +4,7 @@ import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asse
 import marketShares from "@/assets/insights/market-shares.png.asset.json";
 import salesGrowth from "@/assets/insights/sales-growth.png.asset.json";
 import siteNavigation from "@/assets/insights/site-navigation-saas-shot-transparent.png.asset.json";
+import retailMedia from "@/assets/insights/retail-media-strategy.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 
 /** Original homepage copy; only user-supplied application captures are shown. */
@@ -39,7 +40,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "retail-media-strategy",
       title: "Retail Media Strategy",
       description: "Measure the effectiveness of retail media campaigns with real-time, data-backed insights that show clear results. We provide detailed attribution level metrics, ROAS, incremental ROAS, ROI and campaign post impact, ensuring brands have full transparency. By offering detailed and incremental measurement, brands can fine-tune their media strategies, build trust with suppliers, and drive increased media budgets over time.",
-      screenshot: null,
+      screenshot: { src: retailMedia.url, alt: "Retail Media Strategy: campaign results with estimated incremental sales in the app", width: 1920, height: 1248 },
     },
   ],
 };
