@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useSiteAppearance } from "@/components/site/SiteAppearance";
+import { useState } from "react";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
 import DataMonetisationHero from "@/components/site/DataMonetisationHero";
 import { MonetisableInsights } from "@/components/site/MonetisableInsights";
 import { ArrowLink, ClosingCTA, SectionIntro, TalkToUs } from "@/components/site/ui";
+import { Switch } from "@/components/ui/switch";
 import { CLIENTS, FEATURED_STORY, METHOD, SOLUTIONS, formatNewsDate } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,12 +36,12 @@ const INSIGHTS = [
 ];
 
 function Home() {
-  const { navy } = useSiteAppearance();
+  const [navy, setNavy] = useState(false);
 
   return (
     <>
       {/* 1 · Hero */}
-      <section className="transition-colors duration-300">
+      <section className={cn("transition-colors duration-300", navy && "on-dark")}>
         <div className="container-cg grid gap-12 pb-12 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-20 lg:pt-16">
           <div className="lg:col-span-6 lg:pt-6">
             <p className="eyebrow mb-6">Data monetisation. Built into your business.</p>
@@ -51,6 +53,14 @@ function Home() {
               <TalkToUs variant={navy ? "cyan" : "primary"} />
               <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
             </div>
+            <label className="mt-10 flex w-fit cursor-pointer items-center gap-3 select-none">
+              <Switch
+                checked={navy}
+                onCheckedChange={setNavy}
+                className={navy ? "data-[state=unchecked]:bg-pale/40 data-[state=checked]:bg-cyan" : undefined}
+              />
+              <span className="text-sm text-muted-foreground">Navy background</span>
+            </label>
           </div>
           <div className="min-w-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
             {/* Brand tokens: ink = --cg-navy, accent = --cg-link, glow = --cg-cyan */}
