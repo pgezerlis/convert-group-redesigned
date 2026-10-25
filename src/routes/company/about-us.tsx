@@ -6,6 +6,8 @@ export const Route = createFileRoute("/company/about-us")({
     meta: [
       { title: "About Us — Convert Group" },
       { name: "description", content: "Convert combines commercial expertise, data monetisation know-how and technology to help retail businesses build lasting capability." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "About Us — Convert Group" },
       { property: "og:description", content: "Commercial and technical disciplines, working together with retail teams." },
     ],

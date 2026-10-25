@@ -13,3 +13,4 @@
 - Brand tokens (--cg-*) in src/styles.css are mapped to shadcn semantic names; why: the design spec forbids a second palette and requires a light-only theme.
 - Unapproved content renders via the `Pending` placeholder component, never invented facts; why: brand spec forbids fabricated proof.
 - Client marks are only the clients' own official files, dropped at src/assets/logos/<slug>.asset.json; until supplied the strip shows the name as a labelled stand-in; why: we never draw a client's identity ourselves.
+- The homepage animation is a reusable Three.js figure loaded inside a browser effect, with labels in src/lib/content.ts, pause/replay controls and a static reduced-motion state; why: it stays sharp, SSR-safe and independent of live services or video assets.

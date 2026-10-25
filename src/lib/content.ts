@@ -177,6 +177,12 @@ export const SOLUTIONS: SolutionContent[] = [
 
 export const getSolution = (slug: string) => SOLUTIONS.find((s) => s.slug === slug);
 
+/** Abstract homepage animation labels, not performance data or product claims. */
+export const HERO_ANIMATION = {
+  label: "Data. Insight. Commercial value.",
+  description: "An abstract rotating sphere of data points that organise into structured columns and flow back together.",
+} as const;
+
 export const WORKFLOW_EXAMPLES = [
   {
     label: "Supplier partners",

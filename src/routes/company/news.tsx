@@ -6,6 +6,8 @@ export const Route = createFileRoute("/company/news")({
     meta: [
       { title: "News — Convert Group" },
       { name: "description", content: "News and updates from Convert Group on data monetisation for retail, marketplaces and delivery apps." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "News — Convert Group" },
       { property: "og:description", content: "Updates from Convert Group." },
     ],

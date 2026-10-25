@@ -15,7 +15,9 @@ export const Route = createFileRoute("/solutions/$audience")({
       meta: [
         { title: t },
         { name: "description", content: d },
-        { property: "og:title", content: t },
+        { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: t },
         { property: "og:description", content: d },
         ...(loaderData ? [] : [{ name: "robots", content: "noindex" }]),
       ],

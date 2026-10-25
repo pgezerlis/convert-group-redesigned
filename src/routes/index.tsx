@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ClientLogo, hasClientMark } from "@/components/site/ClientLogo";
-import { RetailValueFigure } from "@/components/site/RetailValueFigure";
+import { DataValueAnimation } from "@/components/site/DataValueAnimation";
 import { IllustrativeWorkflow } from "@/components/site/IllustrativeWorkflow";
 import { ArrowLink, ClosingCTA, Pending, SectionIntro, TalkToUs } from "@/components/site/ui";
 import { CLIENTS, METHOD, SOLUTIONS } from "@/lib/content";
@@ -14,6 +14,8 @@ export const Route = createFileRoute("/")({
         content:
           "Convert helps retailers, marketplaces and delivery apps monetise their data with the commercial framework, know-how and technology to build that capability in-house.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Convert Group — Make data monetisation a core capability" },
       {
         property: "og:description",
@@ -47,8 +49,8 @@ function Home() {
               <ArrowLink to="/how-we-do-it">See how we do it</ArrowLink>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:flex lg:justify-end">
-            <RetailValueFigure />
+          <div className="min-w-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
+            <DataValueAnimation />
           </div>
         </div>
       </section>

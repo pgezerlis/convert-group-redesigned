@@ -7,6 +7,8 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title: "Contact Us — Talk to Convert Group" },
       { name: "description", content: "Tell us what you want to build with your data. Talk to Convert Group about data monetisation." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Contact Us — Talk to Convert Group" },
       { property: "og:description", content: "Tell us what you want to build with your data." },
     ],
