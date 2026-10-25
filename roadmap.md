@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Redesign the Dr. Max partnership image to match the website, preserving original logos
 - [x] Add a hero switch that turns the first section's background into convertgroup.com's navy
 - [x] Combine the five areas into one user-selected section inspired by Zenlytic integrations
 - [x] Copy all five monetisable insight areas before How we do it and add the supplied Customer Insights screenshot
