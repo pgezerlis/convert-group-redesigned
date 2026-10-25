@@ -318,6 +318,18 @@ html.site-navy {
 }
 .site-navy :is(h1, h2, h3, h4) { color: var(--cg-white); }
 .site-navy :is(.lede, .eyebrow) { color: var(--cg-pale-blue); }
+.site-navy .text-navy { color: var(--cg-white); }
+.site-navy .text-ink { color: var(--cg-pale-blue); }
+.site-navy :is(.bg-pale, .bg-surface) { background-color: var(--cg-navy); }
+.site-navy .bg-navy { background-color: var(--cg-white); }
+.site-navy .text-error { color: var(--cg-error-on-navy); }
+.site-navy .border-control { border-color: var(--cg-pale-blue); }
+.site-navy .border-error { border-color: var(--cg-error-on-navy); }
+.site-navy .text-navy:hover { color: var(--cg-pale-blue); }
+.site-navy .hover\:bg-surface:hover,
+.site-navy .hover\:bg-pale:hover { background-color: color-mix(in srgb, var(--cg-pale-blue) 12%, var(--cg-navy)); }
+.site-navy [role="tab"][data-state="active"] { color: var(--cg-white); background: color-mix(in srgb, var(--cg-pale-blue) 12%, var(--cg-navy)); }
+.site-navy .border-navy { border-color: var(--cg-pale-blue); }
 .site-navy .text-link { color: var(--cg-cyan); }
 .site-navy .text-link:hover { color: var(--cg-white); }
 .site-navy :focus-visible { outline-color: var(--cg-cyan); }
