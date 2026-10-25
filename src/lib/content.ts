@@ -2,6 +2,7 @@
 // example data — no client results, logos or testimonials are invented.
 import bundleOpportunities from "@/assets/insights/bundle-opportunities.png.asset.json";
 import marketShares from "@/assets/insights/market-shares.png.asset.json";
+import salesGrowth from "@/assets/insights/sales-growth.png.asset.json";
 import drMaxPartnership from "@/assets/news/dr-max-partnership.asset.json";
 
 /** Original homepage copy; only user-supplied application captures are shown. */
@@ -19,7 +20,7 @@ export const MONETISABLE_INSIGHTS = {
       slug: "sales-growth-insights",
       title: "Sales Growth Insights",
       description: "Every Brand needs to understand the “why” behind fluctuations in their sales figures. With our platform, brands gain instant, in-depth insights into their performance, breaking down sales data into granular components. Our intuitive, visual reports uncover the key drivers of sales changes—whether it’s promotions, seasonality, or market shifts—empowering brands to refine their strategies, optimise inventory, and seize new growth opportunities with confidence.",
-      screenshot: null,
+      screenshot: { src: salesGrowth.url, alt: "Sales Growth Insights: KPI tree breaking down sales growth drivers", width: 1920, height: 1296 },
     },
     {
       slug: "search-navigation",
